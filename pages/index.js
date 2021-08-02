@@ -1,19 +1,24 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import { motion } from "framer-motion"
 
 export default function Home() {
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+        <Head>
+          <title>Create Next App</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
 
       <main className={styles.main}>
+      <motion.div animate={{ scale: 1.5 }} transition={{ duration: 0.5 }}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Welcome to <a href="https://nextjs.org" className="text-red-600 hover:text-red-700">Next.js!</a>
         </h1>
+      </motion.div>
 
+        <br />
+        <br />
         <p className={styles.description}>
           Get started by editing{' '}
           <code className={styles.code}>pages/index.js</code>
