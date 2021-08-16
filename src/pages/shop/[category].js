@@ -103,7 +103,7 @@ const Shop = () => {
                     enterTo="opacity-100 translate-y-0"
                     leave="transition ease-in duration-150"
                     leaveFrom="opacity-100 translate-y-0"
-                    leaveTo="opacity-0 -translate-y-2"
+                    leaveTo="opacity-0 -translate-y-2 "
                   >
                     <Popover.Panel className="absolute z-10 w-[172px] transform -translate-x-1/2 left-1/2 sm:px-0">
                       <div className="overflow-hidden">
