@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       fontFamily: {
         poppins: ['"Poppins"'],
+        oswald: ['"Oswald"'],
       },
       screens: {
         '3xl': '1920px',

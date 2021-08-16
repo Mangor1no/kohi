@@ -52,3 +52,60 @@ export const IconStar = () => (
     />
   </svg>
 );
+
+export const IconDropdown = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="8" viewBox="0 0 16 8" fill="none">
+    <path
+      d="M7.99975 8L0 0.000248605H3.99978L7.99975 4.00012L11.9995 0L15.9995 0.000248605L7.99975 8Z"
+      fill="black"
+    />
+  </svg>
+);
+
+export const IconPaginatePrev = ({ active }) => {
+  if (active)
+    return (
+      <svg xmlns="http://www.w3.org/2000/svg" width="7" height="14" viewBox="0 0 7 14" fill="none">
+        <path d="M0 7L7 0V3.5L3.5 7L7 10.5V14L0 7Z" fill="#963C28" />
+      </svg>
+    );
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="7" height="14" viewBox="0 0 7 14" fill="none">
+      <path d="M0 7L7 0V3.5L3.5 7L7 10.5V14L0 7Z" fill="#8B8C9B" />
+    </svg>
+  );
+};
+
+export const IconPaginateNext = ({ active }) => {
+  if (active)
+    return (
+      <svg xmlns="http://www.w3.org/2000/svg" width="7" height="14" viewBox="0 0 7 14" fill="none">
+        <path d="M7 7L0 14V10.5L3.5 7L0 3.5V0L7 7Z" fill="#963C28" />
+      </svg>
+    );
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="7" height="14" viewBox="0 0 7 14" fill="none">
+      <path d="M7 7L0 14V10.5L3.5 7L0 3.5V0L7 7Z" fill="#8B8C9B" />
+    </svg>
+  );
+};
+
+export const IconPriceRange = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <g clipPath="url(#clip0)">
+      <path
+        d="M11.6077 0.559082L0 12.0662L11.6077 23.4457V17.1729L6.36069 12.0002L11.6077 6.82754V0.559082Z"
+        fill="#963C28"
+      />
+      <path
+        d="M12.3926 23.4413L24.0003 11.9341L12.3926 0.554688V6.82745L17.6396 12.0001L12.3926 17.1728V23.4413Z"
+        fill="#963C28"
+      />
+    </g>
+    <defs>
+      <clipPath id="clip0">
+        <rect width="24" height="24" fill="white" />
+      </clipPath>
+    </defs>
+  </svg>
+);

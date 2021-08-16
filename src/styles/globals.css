@@ -44,6 +44,8 @@
   src: url(../../public/fonts/Poppins-Bold.ttf) format('woff');
 }
 
+@import 'theme.css';
+
 html,
 body {
   padding: 0;

@@ -4,8 +4,12 @@ import React from 'react';
 const Product = ({ product }) => {
   return (
     <div className="w-full h-[500px]">
-      <div className="w-full h-[400px] px-9 py-[70px] bg-[#F2F2F2] flex items-center justify-center">
-        <img src={product?.image?.[0]} alt={product?.name} />
+      <div className="w-full h-[400px] md:px-9 md:py-[70px] bg-[#F2F2F2] flex items-center justify-center">
+        <img
+          src={product?.image?.[0]}
+          alt={product?.name}
+          className="md:w-full h-full object-cover"
+        />
       </div>
       <p className="font-poppins font-semibold mt-2">{product?.name}</p>
       <div className="flex items-center mt-2">
