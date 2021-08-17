@@ -1,20 +1,60 @@
 import { Disclosure, Transition } from '@headlessui/react';
-import { IconPriceRange } from 'constants/Icons';
-import { filterType, products } from 'data/constants';
-import React, { Fragment, useCallback, useEffect, useState } from 'react';
+import { IconCheckboxCheck, IconPriceRange } from 'constants/Icons';
+import { filterType } from 'data/constants';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Range } from 'react-range';
 
-const Filter = () => {
+const Filter = ({ handleFilter, products }) => {
   const [priceRange, setPriceRange] = useState([0, 99999]);
   const [lowestPrice, setLowestPrice] = useState(0);
   const [highestPrice, setHighestPrice] = useState(99999);
+  const [brandList, setBrandList] = useState([]);
+  const [colorList, setColorList] = useState([]);
+  const [selectedColor, setSelectedColor] = useState([]);
+  const [selectedBrand, setSelectedBrand] = useState([]);
+  const [selectedPriceRange, setSelectedPriceRange] = useState([0, 99999]);
 
   useEffect(() => {
     const priceList = products.map((product) => product.price).sort((a, b) => a - b);
     setPriceRange([Math.floor(priceList[0]), Math.ceil(priceList[priceList.length - 1])]);
+    setSelectedPriceRange([Math.floor(priceList[0]), Math.ceil(priceList[priceList.length - 1])]);
     setHighestPrice(Math.ceil(priceList[priceList.length - 1]));
     setLowestPrice(Math.floor(priceList[0]));
-  }, []);
+    const brands = [...new Set(products.map((cat) => cat.brand))];
+    const colors = [...new Set(products.map((cat) => cat.variations).flat())];
+    setBrandList(brands);
+    setColorList(colors);
+  }, [products]);
+
+  const handleFilterColor = (color) => () => {
+    let tempColor = [...selectedColor];
+
+    if (tempColor.includes(color)) {
+      tempColor = tempColor.filter((col) => {
+        return col !== color;
+      });
+    } else {
+      tempColor.push(color);
+    }
+    return setSelectedColor(tempColor);
+  };
+
+  const handleFilterBrand = (brand) => () => {
+    let tempBrand = [...selectedBrand];
+
+    if (tempBrand.includes(brand)) {
+      tempBrand = tempBrand.filter((br) => {
+        return br !== brand;
+      });
+    } else {
+      tempBrand.push(brand);
+    }
+    return setSelectedBrand(tempBrand);
+  };
+
+  useEffect(() => {
+    handleFilter({ selectedColor, selectedBrand, selectedPriceRange });
+  }, [selectedColor, selectedBrand, selectedPriceRange]);
 
   const renderFilterPrice = useCallback(() => {
     return (
@@ -27,6 +67,7 @@ const Filter = () => {
           onChange={(values) => {
             setPriceRange(values);
           }}
+          onFinalChange={(values) => setSelectedPriceRange(values)}
           renderTrack={({ props, children }) => (
             <div
               {...props}
@@ -53,24 +94,71 @@ const Filter = () => {
     );
   }, [lowestPrice, highestPrice, priceRange]);
 
+  const renderFilterBrand = useCallback(() => {
+    return (
+      <div className="w-full">
+        <ul className="h-48 overflow-y-auto overflow-x-hidden">
+          {brandList.map((brand, index) => (
+            <li
+              key={brand}
+              className={`flex items-center ${index === brandList.length - 1 ? '' : 'mb-4'}`}
+            >
+              <div className="relative flex items-center justify-center">
+                <input
+                  type="checkbox"
+                  id={brand}
+                  className="appearance-none w-4 h-4 min-w-4 border border-bgPrimary checked:border-primary checked:bg-primary mr-2 cursor-pointer rounded-[4px]"
+                  onChange={handleFilterBrand(brand)}
+                  checked={selectedBrand?.includes(brand)}
+                />
+                <div className="absolute left-[3px]">
+                  <IconCheckboxCheck />
+                </div>
+              </div>
+              <label htmlFor={brand} className="cursor-pointer w-full text-sm">
+                {brand}
+              </label>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }, [brandList, selectedBrand]);
+
+  const renderFilterColor = useCallback(() => {
+    return (
+      <div className="w-full -my-2">
+        <ul className="flex items-center">
+          {colorList.map((color, index) => (
+            <li
+              key={color}
+              className={`flex items-center ${index === colorList.length - 1 ? '' : 'mr-4'}`}
+            >
+              <input
+                type="checkbox"
+                id={color}
+                className="w-6 h-6 min-w-6 rounded-full appearance-none checked:ring-2 checked:ring-primary checked:ring-offset-2 cursor-pointer"
+                style={{ backgroundColor: color }}
+                onChange={handleFilterColor(color)}
+                checked={selectedColor?.includes(color)}
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }, [colorList, selectedColor]);
+
   const renderFilter = (type) => {
     switch (type) {
       case filterType[0]: {
-        return (
-          <>
-            <input type="text" />
-          </>
-        );
+        return renderFilterBrand();
       }
       case filterType[1]: {
         return renderFilterPrice();
       }
       case filterType[2]: {
-        return (
-          <>
-            <input type="text" />
-          </>
-        );
+        return renderFilterColor();
       }
       default:
         return null;
@@ -83,14 +171,10 @@ const Filter = () => {
       <div className="h-px w-[90px] bg-primary mt-2 mb-4" />
       {filterType.map((filter, index) => {
         return (
-          <Disclosure
-            as="div"
-            className={`font-poppins font-semibold ${index === 0 ? '' : 'mt-2'}`}
-            key={index}
-          >
+          <Disclosure as="div" className={`font-semibold ${index === 0 ? '' : 'mt-2'}`} key={index}>
             {({ open }) => (
               <>
-                <Disclosure.Button className="flex items-center">
+                <Disclosure.Button className="flex items-center my-4">
                   {open ? (
                     <div className="w-[10px] h-px bg-bgPrimary" />
                   ) : (
@@ -98,7 +182,6 @@ const Filter = () => {
                   )}
                   <span className="uppercase ml-4 text-base">{filter}</span>
                 </Disclosure.Button>
-                <div className="h-px w-[90px] bg-[#F2F2F2] mt-4 mb-2" />
                 <Transition
                   as="div"
                   show={open}
@@ -109,7 +192,7 @@ const Filter = () => {
                   leaveFrom="opacity-100 translate-y-0"
                   leaveTo="opacity-0 -translate-y-2"
                 >
-                  <Disclosure.Panel className={`w-full pl-[26px] pr-4 py-2 `}>
+                  <Disclosure.Panel className="w-full pl-[26px] pr-4 py-2 font-poppins">
                     {renderFilter(filter)}
                   </Disclosure.Panel>
                 </Transition>

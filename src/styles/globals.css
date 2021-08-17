@@ -63,3 +63,17 @@ a {
 * {
   box-sizing: border-box;
 }
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #70707020;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #2e2d39;
+}

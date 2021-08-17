@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Logo from 'public/logo/KOHI.png';
 import { IconCart, IconSearch, IconUser } from 'constants/Icons';
 import { useComponentVisible } from 'src/utils/customHooks';
+import Link from 'next/link';
 
 const BurgerButton = ({ navbarOpen }) => {
   const [open, setOpen] = useState(true);
@@ -71,8 +72,12 @@ const Header = () => {
       </div>
       <div className="hidden 2xl:flex items-center justify-between">
         <div className="flex items-center justify-between">
-          <p className="mr-[50px]">HOME</p>
-          <p className="mr-[50px]">SHOP</p>
+          <Link href="/">
+            <a className="mr-[50px]">HOME</a>
+          </Link>
+          <Link href="/shop">
+            <a className="mr-[50px]">SHOP</a>
+          </Link>
           <p className="mr-[50px]">BLOG</p>
           <p className="mr-[50px]">SERVICES</p>
           <p>CONTACT</p>

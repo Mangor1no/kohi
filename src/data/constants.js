@@ -118,7 +118,7 @@ export const categories = [
   },
 ];
 
-export const products = [
+export const coffeeMachines = [
   {
     id: 0,
     name: 'Break Capsule Coffee',
@@ -134,7 +134,8 @@ export const products = [
     rating: 4,
     price: 41.5,
     oldPrice: 53.25,
-    variations: ['black', 'gray'],
+    variations: ['#111827', '#4B5563'],
+    background: ['#14131345', '#E58F6580'], // #111827 machine
     brand: 'Bialetti',
     description:
       'BREAK the super compact Bialetti! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
@@ -175,7 +176,8 @@ export const products = [
     ],
     rating: 5,
     price: 79.99,
-    variations: ['black'],
+    variations: ['#1E40AF'],
+    background: ['#C9F0FF', '#EAFFFD'], // #1E40AF machine
     brand: 'Vinfast',
     description:
       'BREAK the super compact Vinfast! Small, modern design with chrome finishes and soft lines. It is less than 31 cm deep, to fit perfectly in any kitchen.',
@@ -217,7 +219,8 @@ export const products = [
     rating: 3,
     price: 51.5,
     oldPrice: 58.5,
-    variations: ['red', 'black'],
+    variations: ['#B91C1C', '#111827'],
+    background: ['#B91C1C85', '#F59E0B50'], // #B91C1C machine
     brand: 'Masan',
     description:
       'BREAK the super compact Masan! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
@@ -258,7 +261,8 @@ export const products = [
     ],
     rating: 5,
     price: 63.5,
-    variations: ['black', 'gray'],
+    variations: ['#111827', '#4B5563'],
+    background: ['#14131345', '#E58F6580'], // #111827 machine
     brand: 'Bialetti',
     description:
       'BREAK the super compact Bialetti! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
@@ -287,7 +291,7 @@ export const products = [
   },
   {
     id: 4,
-    name: 'Break Capsule Coffee ',
+    name: 'Break Capsule Coffee 2',
     category: 'coffee-machine',
     subCategory: 'espresso-machine',
     image: [
@@ -300,7 +304,8 @@ export const products = [
     rating: 4,
     price: 50.25,
     oldPrice: 58.5,
-    variations: ['black', 'gray', 'red'],
+    variations: ['#111827', '#4B5563'],
+    background: ['#14131345', '#E58F6580'], // #111827 machine
     brand: 'KOI',
     description:
       'BREAK the super compact KOI! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
@@ -341,7 +346,8 @@ export const products = [
     ],
     rating: 4,
     price: 44.5,
-    variations: ['black', 'gray'],
+    variations: ['#111827', '#4B5563'],
+    background: ['#14131345', '#E58F6580'], // #111827 machine
     brand: 'Russel',
     description:
       'BREAK the super compact Russel! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
@@ -374,16 +380,17 @@ export const products = [
     category: 'coffee-machine',
     subCategory: 'coffee-maker',
     image: [
-      '/images/products/product-6.png',
-      '/images/products/product-6.png',
-      '/images/products/product-6.png',
-      '/images/products/product-6.png',
-      '/images/products/product-6.png',
+      '/images/products/product-8.png',
+      '/images/products/product-8.png',
+      '/images/products/product-8.png',
+      '/images/products/product-8.png',
+      '/images/products/product-8.png',
     ],
     rating: 4,
     price: 55.5,
     oldPrice: 73.25,
-    variations: ['gray'],
+    variations: ['#4B5563'],
+    background: ['#14131345', '#E58F6580'], // #111827 machine
     brand: 'Russel Hobb',
     description:
       'BREAK the super compact Russel Hobb! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
@@ -416,16 +423,17 @@ export const products = [
     category: 'coffee-machine',
     subCategory: 'espresso-machine',
     image: [
-      '/images/products/product-7.png',
-      '/images/products/product-7.png',
-      '/images/products/product-7.png',
-      '/images/products/product-7.png',
-      '/images/products/product-7.png',
+      '/images/products/product-0.png',
+      '/images/products/product-0.png',
+      '/images/products/product-0.png',
+      '/images/products/product-0.png',
+      '/images/products/product-0.png',
     ],
     rating: 5,
     price: 69.5,
     oldPrice: 86.25,
-    variations: ['black', 'gray'],
+    variations: ['#111827'],
+    background: ['#14131345', '#E58F6580'], // #111827 machine
     brand: 'Delonghi',
     description:
       'BREAK the super compact Delonghi! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
@@ -467,7 +475,8 @@ export const products = [
     rating: 4,
     price: 41.5,
     oldPrice: 53.25,
-    variations: ['black', 'gray'],
+    variations: ['#FAFAFA'],
+    background: ['#797D8145', '#FA792135'], // #FAFAFA machine
     brand: 'Beko',
     description:
       'BREAK the super compact Beko! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
@@ -508,7 +517,8 @@ export const products = [
     ],
     rating: 5,
     price: 539.99,
-    variations: ['black', 'gray'],
+    variations: ['#111827'],
+    background: ['#14131345', '#E58F6580'], // #111827 machine
     brand: 'Akko',
     description:
       'BREAK the super compact Akko! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
@@ -541,16 +551,17 @@ export const products = [
     category: 'coffee-machine',
     subCategory: 'espresso-machine',
     image: [
-      '/images/products/product-10.png',
-      '/images/products/product-10.png',
-      '/images/products/product-10.png',
-      '/images/products/product-10.png',
-      '/images/products/product-10.png',
+      '/images/products/product-18.png',
+      '/images/products/product-18.png',
+      '/images/products/product-18.png',
+      '/images/products/product-18.png',
+      '/images/products/product-18.png',
     ],
     rating: 4,
     price: 31.5,
     oldPrice: 42.25,
-    variations: ['black', 'red'],
+    variations: ['#111827', '#B91C1C'],
+    background: ['#14131345', '#E58F6580'], // #111827 machine
     brand: 'Crown',
     description:
       'BREAK the super compact Crown! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
@@ -569,52 +580,11 @@ export const products = [
         power: '1200W',
         dispensing_dose: 'Manual',
         capsule_ejection: 'Automatic',
-        steam_wand: 'About 10 mins',
+        steam_wand: 'About 18 mins',
       },
       special: {
         boiler_system: 'Thermoblock system. For an always hot espresso.',
         operation_system: 'Monosystem. It works exclusively with Crown capsules.',
-      },
-    },
-  },
-  {
-    id: 11,
-    name: 'Acqua Di Lucky',
-    category: 'coffee-machine',
-    subCategory: 'espresso-machine',
-    image: [
-      '/images/products/product-11.png',
-      '/images/products/product-11.png',
-      '/images/products/product-11.png',
-      '/images/products/product-11.png',
-      '/images/products/product-11.png',
-    ],
-    rating: 4,
-    price: 68.5,
-    variations: ['red', 'gray'],
-    brand: 'Armani',
-    description:
-      'BREAK the super compact Armani! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
-    stock: 42,
-    metadata: {
-      size: {
-        dimensions: '129x295x233mm',
-        maximum_height: '355mm',
-        cable_length: '1.0m',
-        capsule_capacity: '8/9 capsules',
-        tank_capacity: '0.40L',
-        pump_pressure: '20 Bar',
-      },
-      power: {
-        voltage: '220 - 240V 50 - 60Hz',
-        power: '1200W',
-        dispensing_dose: 'Manual',
-        capsule_ejection: 'Automatic',
-        steam_wand: 'About 10 mins',
-      },
-      special: {
-        boiler_system: 'Thermoblock system. For an always hot espresso.',
-        operation_system: 'Monosystem. It works exclusively with Armani capsules.',
       },
     },
   },
@@ -624,15 +594,16 @@ export const products = [
     category: 'coffee-machine',
     subCategory: 'coffee-roaster',
     image: [
-      '/images/products/product-12.png',
-      '/images/products/product-12.png',
-      '/images/products/product-12.png',
-      '/images/products/product-12.png',
-      '/images/products/product-12.png',
+      '/images/products/product-2.png',
+      '/images/products/product-2.png',
+      '/images/products/product-2.png',
+      '/images/products/product-2.png',
+      '/images/products/product-2.png',
     ],
     rating: 4,
     price: 57.5,
-    variations: ['black', 'gray'],
+    variations: ['#111827', '#4B5563'],
+    background: ['#797D8145', '#FA792135'], // #FAFAFA machine
     brand: 'Old Spice',
     description:
       'BREAK the super compact Old Spice! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
@@ -665,16 +636,17 @@ export const products = [
     category: 'coffee-machine',
     subCategory: 'espresso-machine',
     image: [
-      '/images/products/product-13.png',
-      '/images/products/product-13.png',
-      '/images/products/product-13.png',
-      '/images/products/product-13.png',
-      '/images/products/product-13.png',
+      '/images/products/product-1.png',
+      '/images/products/product-1.png',
+      '/images/products/product-1.png',
+      '/images/products/product-1.png',
+      '/images/products/product-1.png',
     ],
     rating: 4,
     price: 54.5,
     oldPrice: 68.25,
-    variations: ['black', 'gray'],
+    variations: ['#111827', '#4B5563'],
+    background: ['#797D8145', '#FA792135'], // #FAFAFA machine
     brand: 'WASD',
     description:
       'BREAK the super compact WASD! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
@@ -707,16 +679,17 @@ export const products = [
     category: 'coffee-machine',
     subCategory: 'fully-automatic',
     image: [
-      '/images/products/product-14.png',
-      '/images/products/product-14.png',
-      '/images/products/product-14.png',
-      '/images/products/product-14.png',
-      '/images/products/product-14.png',
+      '/images/products/product-0.png',
+      '/images/products/product-0.png',
+      '/images/products/product-0.png',
+      '/images/products/product-0.png',
+      '/images/products/product-0.png',
     ],
     rating: 4,
     price: 57.5,
     oldPrice: 78.25,
-    variations: ['red'],
+    variations: ['#B91C1C'],
+    background: ['#797D8145', '#FA792135'], // #FAFAFA machine
     brand: 'Fika',
     description:
       'BREAK the super compact Fika! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
@@ -744,63 +717,22 @@ export const products = [
     },
   },
   {
-    id: 15,
-    name: 'POP Xiaomi',
-    category: 'coffee-machine',
-    subCategory: 'fully-automatic',
-    image: [
-      '/images/products/product-15.png',
-      '/images/products/product-15.png',
-      '/images/products/product-15.png',
-      '/images/products/product-15.png',
-      '/images/products/product-15.png',
-    ],
-    rating: 5,
-    price: 429.99,
-    oldPrice: 538.79,
-    variations: ['black', 'gray'],
-    brand: 'Xiaomi',
-    description:
-      'BREAK the super compact Xiaomi! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
-    stock: 42,
-    metadata: {
-      size: {
-        dimensions: '129x295x233mm',
-        maximum_height: '355mm',
-        cable_length: '1.0m',
-        capsule_capacity: '8/9 capsules',
-        tank_capacity: '0.40L',
-        pump_pressure: '20 Bar',
-      },
-      power: {
-        voltage: '220 - 240V 50 - 60Hz',
-        power: '1200W',
-        dispensing_dose: 'Manual',
-        capsule_ejection: 'Automatic',
-        steam_wand: 'About 10 mins',
-      },
-      special: {
-        boiler_system: 'Thermoblock system. For an always hot espresso.',
-        operation_system: 'Monosystem. It works exclusively with Xiaomi capsules.',
-      },
-    },
-  },
-  {
     id: 16,
     name: 'HOCO DAB',
     category: 'coffee-machine',
     subCategory: 'fully-automatic',
     image: [
-      '/images/products/product-16.png',
-      '/images/products/product-16.png',
-      '/images/products/product-16.png',
-      '/images/products/product-16.png',
-      '/images/products/product-16.png',
+      '/images/products/product-4.png',
+      '/images/products/product-4.png',
+      '/images/products/product-4.png',
+      '/images/products/product-4.png',
+      '/images/products/product-4.png',
     ],
     rating: 5,
     price: 489.99,
     oldPrice: 538.79,
-    variations: ['black', 'gray'],
+    variations: ['#111827'],
+    background: ['#14131345', '#E58F6580'], // #111827 machine
     brand: 'HOCO',
     description:
       'BREAK the super compact HOCO DAB! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
@@ -833,16 +765,17 @@ export const products = [
     category: 'coffee-machine',
     subCategory: 'fully-automatic',
     image: [
-      '/images/products/product-17.png',
-      '/images/products/product-17.png',
-      '/images/products/product-17.png',
-      '/images/products/product-17.png',
-      '/images/products/product-17.png',
+      '/images/products/product-5.png',
+      '/images/products/product-5.png',
+      '/images/products/product-5.png',
+      '/images/products/product-5.png',
+      '/images/products/product-5.png',
     ],
     rating: 5,
     price: 489.99,
     oldPrice: 538.79,
-    variations: ['black', 'gray'],
+    variations: ['#111827'],
+    background: ['#14131345', '#E58F6580'], // #111827 machine
     brand: 'Colorize',
     description:
       'BREAK the super compact Colorize Coffee! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
@@ -884,7 +817,8 @@ export const products = [
     rating: 5,
     price: 489.99,
     oldPrice: 538.79,
-    variations: ['black', 'gray'],
+    variations: ['#111827'],
+    background: ['#B91C1C95', '#F59E0B80'], // #B91C1C machine
     brand: 'Colorize',
     description:
       'BREAK the super compact Colorize Coffee! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
@@ -917,16 +851,17 @@ export const products = [
     category: 'coffee-machine',
     subCategory: 'fully-automatic',
     image: [
-      '/images/products/product-19.png',
-      '/images/products/product-19.png',
-      '/images/products/product-19.png',
-      '/images/products/product-19.png',
-      '/images/products/product-19.png',
+      '/images/products/product-0.png',
+      '/images/products/product-0.png',
+      '/images/products/product-0.png',
+      '/images/products/product-0.png',
+      '/images/products/product-0.png',
     ],
     rating: 5,
     price: 489.99,
     oldPrice: 538.79,
-    variations: ['black', 'gray'],
+    variations: ['#111827'],
+    background: ['#797D8145', '#FA792135'], // #FAFAFA machine
     brand: 'Colorize',
     description:
       'BREAK the super compact Colorize Coffee! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
@@ -959,16 +894,17 @@ export const products = [
     category: 'coffee-machine',
     subCategory: 'fully-automatic',
     image: [
-      '/images/products/product-20.png',
-      '/images/products/product-20.png',
-      '/images/products/product-20.png',
-      '/images/products/product-20.png',
-      '/images/products/product-20.png',
+      '/images/products/product-2.png',
+      '/images/products/product-2.png',
+      '/images/products/product-2.png',
+      '/images/products/product-2.png',
+      '/images/products/product-2.png',
     ],
     rating: 5,
     price: 489.99,
     oldPrice: 538.79,
-    variations: ['black', 'gray'],
+    variations: ['#111827'],
+    background: ['#797D8145', '#FA792135'], // #FAFAFA machine
     brand: 'Okamura',
     description:
       'BREAK the super compact Gillette Okamura! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
@@ -992,6 +928,102 @@ export const products = [
       special: {
         boiler_system: 'Thermoblock system. For an always hot espresso.',
         operation_system: 'Monosystem. It works exclusively with Okamura capsules.',
+      },
+    },
+  },
+];
+
+export const baristaTools = [
+  {
+    id: 0,
+    name: 'Delonghi Tamper',
+    category: 'barista-tools',
+    subCategory: 'tampers-and-mats',
+    image: [
+      '/images/products/product-24.png',
+      '/images/products/product-24.png',
+      '/images/products/product-24.png',
+      '/images/products/product-24.png',
+      '/images/products/product-24.png',
+    ],
+    rating: 4,
+    price: 28.5,
+    oldPrice: 53.25,
+    variations: ['black', 'gray'],
+    brand: 'Delonghi',
+    description:
+      "The better result are obtaines using De'longhi calibrated coffee tamper to give the right pressure to ground coffee into the filter.",
+    stock: 42,
+    metadata: {
+      detail: {
+        dimensions: '51.5x51.5x90.9mm',
+        weight: '283.50g',
+        material: 'Metal',
+        country: 'Italia',
+      },
+    },
+  },
+  {
+    id: 1,
+    name: 'Delonghi Shot Glass',
+    category: 'barista-tools',
+    subCategory: 'cups-and-mugs',
+    image: [
+      '/images/products/product-12.png',
+      '/images/products/product-12.png',
+      '/images/products/product-12.png',
+      '/images/products/product-12.png',
+      '/images/products/product-12.png',
+    ],
+    rating: 5,
+    price: 14.99,
+    variations: ['white', 'gray'],
+    brand: 'Delonghi',
+    description:
+      'Serve robust espresso at home in double-wall-insulated glasses that keep drinks hot or cold and limit condensation. The dishwasher-safe design allows quick and easy cleaning.',
+    stock: 42,
+    metadata: {
+      details: {
+        dimensions: '63.5x63.5x63.5mm',
+        weight: '113.40g',
+        cable_length: '1.0m',
+        tank_capacity: '0.03L',
+        material: 'Glass',
+        country: 'Italia',
+      },
+    },
+  },
+];
+
+export const coffeeBeans = [
+  {
+    id: 0,
+    name: 'Roasted Coffee Beans',
+    category: 'coffee-beans',
+    subCategory: 'roasted',
+    image: [
+      '/images/products/product-11.png',
+      '/images/products/product-11.png',
+      '/images/products/product-11.png',
+      '/images/products/product-11.png',
+      '/images/products/product-11.png',
+    ],
+    rating: 4,
+    price: 19.95,
+    variations: ['black'],
+    brand: 'Bialetti',
+    description:
+      'Since more than 80 years, Bialetti is delivering the perfect coffee to worldwide homes.',
+    stock: 42,
+    metadata: {
+      details: {
+        dimensions: '255x70x80mm',
+        weight: '0.26g',
+        flavor: 'Flower, Dried Fruit',
+        roastLevel: 'Medium-roast',
+        specialIngredient: 'Italia Espresso Roasted',
+        model: '8006363031646',
+        country: 'Italia',
       },
     },
   },

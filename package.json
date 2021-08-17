@@ -11,6 +11,7 @@
   "dependencies": {
     "@headlessui/react": "^1.4.0",
     "@reduxjs/toolkit": "^1.6.1",
+    "@tailwindcss/line-clamp": "^0.2.1",
     "framer-motion": "^4.1.17",
     "next": "10.x",
     "next-images": "^1.8.1",

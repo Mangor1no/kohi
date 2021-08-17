@@ -1,28 +1,18 @@
+import { Listbox, Transition } from '@headlessui/react';
 import Layout from 'components/Layout';
-import React, { Fragment, useEffect, useState } from 'react';
-import banner from 'public/images/allmachines.jpg';
-import { useRouter } from 'next/router';
 import Category from 'components/shop/Category';
-import { categories, products } from 'data/constants';
-import Product from 'components/shop/Product';
-import { Popover, Transition } from '@headlessui/react';
 import Filter from 'components/shop/Filter';
-import { IconDropdown, IconPaginateNext, IconPaginatePrev } from 'constants/Icons';
+import Product from 'components/shop/Product';
+import { IconDropdown, IconPaginateNext, IconPaginatePrev, IconPriceRange } from 'constants/Icons';
+import { categories, coffeeMachines, baristaTools, coffeeBeans } from 'data/constants';
+import { useRouter } from 'next/router';
+import banner from 'public/images/allmachines.jpg';
+import React, { Fragment, useCallback, useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { chunk } from 'utils/helpers';
 
 const Shop = () => {
   const { query } = useRouter();
-  const [currentSubCategory, setCurrentSubCategory] = useState('');
-  const [currentPage, setCurrentPage] = useState(0);
-  const [pageCount, setPageCount] = useState(1);
-
-  const CATEGORY = {
-    COFFEE_MACHINE: 'coffee-machine',
-    BARISTA_TOOLS: 'barista-tools',
-    ACCESSORIES: 'accessories',
-    COFFEE_BEANS: 'coffee-beans',
-  };
 
   const sortFilter = [
     {
@@ -43,121 +33,256 @@ const Shop = () => {
     },
   ];
 
+  const [currentCategory, setCurrentCategory] = useState('coffee-machine');
+  const [currentSubCategory, setCurrentSubCategory] = useState('all-machines');
+  const [currentSubCategorySlug, setCurrentSubCategorySlug] = useState('all-machines');
+  const [currentPage, setCurrentPage] = useState(0);
+  const [pageCount, setPageCount] = useState(1);
+  const [selected, setSelected] = useState(null);
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [filterColor, setFilterColor] = useState([]);
+  const [filterBrand, setFilterBrand] = useState([]);
+  const [filterPriceRange, setFilterPriceRange] = useState([]);
+
   useEffect(() => {
     const current = categories.filter((cat) => cat.category === query.category)[0];
     setCurrentSubCategory(current?.subCategory[0]?.name);
-    setPageCount(products.length % 9);
+    setPageCount(Math.ceil(products.length / 12));
   }, [query]);
 
-  const handleSelectCategory = (subCategory) => {
+  useEffect(() => {
+    let data;
+    if (currentCategory === categories?.[0]?.category) {
+      data = coffeeMachines;
+    }
+    if (currentCategory === categories?.[1]?.category) {
+      data = coffeeBeans;
+    }
+    if (currentCategory === categories?.[2]?.category) {
+      data = baristaTools;
+    }
+    setProducts(data);
+    setFilteredProducts(data);
+  }, [currentCategory]);
+
+  useEffect(() => {
+    let tempProd = [...products];
+    setCurrentPage(0);
+
+    if (currentSubCategorySlug !== 'all-machines') {
+      tempProd = tempProd.filter((prod) => prod.subCategory === currentSubCategorySlug);
+    } else {
+      tempProd = [...products];
+    }
+
+    if (filterBrand.length > 0) {
+      tempProd = filterBrand
+        .map((select) => tempProd.filter((prod) => prod.brand === select))
+        .flat();
+    }
+
+    if (filterColor.length > 0) {
+      tempProd = [
+        ...new Set(
+          filterColor
+            .map((select) => tempProd.filter((prod) => prod.variations.includes(select)))
+            .flat()
+        ),
+      ];
+    }
+
+    if (filterPriceRange.length > 0) {
+      tempProd = tempProd.filter(
+        (prod) => prod.price >= filterPriceRange[0] && prod.price <= filterPriceRange[1]
+      );
+    }
+
+    if (selected) {
+      switch (selected.id) {
+        case 0: {
+          tempProd = tempProd.sort((a, b) => a.price - b.price);
+          break;
+        }
+        case 1: {
+          tempProd = tempProd.sort((a, b) => b.price - a.price);
+          break;
+        }
+        case 2: {
+          tempProd = tempProd.sort((a, b) => a.name.localeCompare(b.name));
+          break;
+        }
+        case 3: {
+          tempProd = tempProd.sort((a, b) => b.name.localeCompare(a.name));
+          break;
+        }
+        default:
+          break;
+      }
+    }
+    setFilteredProducts(tempProd);
+  }, [selected, filterColor, filterBrand, filterPriceRange, products, currentSubCategorySlug]);
+
+  const handleSelectCategory = (subCategory, subCategorySlug, category) => {
     setCurrentSubCategory(subCategory);
+    setCurrentSubCategorySlug(subCategorySlug);
+    setCurrentCategory(category);
   };
 
   const handlePageClick = async (page) => {
     await setCurrentPage(page.selected);
   };
 
+  const handleFilter = ({ selectedColor, selectedBrand, selectedPriceRange }) => {
+    setFilterColor(selectedColor);
+    setFilterBrand(selectedBrand);
+    setFilterPriceRange(selectedPriceRange);
+  };
+
+  const renderProducts = useCallback(() => {
+    const chunks = chunk(filteredProducts, 12);
+    return (
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 w-full gap-5">
+        {chunks?.[currentPage]?.map((product) => (
+          <Transition
+            as="div"
+            key={product.id}
+            show
+            enter="transition ease-out duration-200"
+            enterFrom="opacity-0 -translate-y-2"
+            enterTo="opacity-100 translate-y-0"
+            leave="transition ease-in duration-150"
+            leaveFrom="opacity-100 translate-y-0"
+            leaveTo="opacity-0 -translate-y-2"
+          >
+            <Product product={product} />
+          </Transition>
+        ))}
+      </div>
+    );
+  }, [currentPage, filteredProducts, currentCategory]);
+
   return (
     <Layout>
       <div className="h-[500px] min-h-[500px] w-full relative">
         <img src={banner} alt="banner" className="h-full w-full object-cover" />
         <div className="absolute inset-0 w-full h-full bg-[#2B2B3560] z-10 flex items-center justify-center">
-          <p className="text-2xl text-[#F2F2F2] font-bold uppercase">All machines</p>
+          <p className="text-2xl text-[#F2F2F2] font-bold uppercase">{currentSubCategory}</p>
         </div>
       </div>
-      <div className="pt-[176px] px-6 lg:px-[80px] xl:px-40 2xl:px-[255px] flex justify-between shop-main">
-        <div className="hidden md:block max-w-[262px]">
-          <Category
-            currentSubCategory={currentSubCategory}
-            handleSelectCategory={handleSelectCategory}
-          />
-          <div className="mt-11">
-            <Filter />
+      <div className="py-16 px-6 lg:px-[80px] xl:px-40 2xl:px-[255px] shop-main">
+        <div
+          className="flex justify-between bg-white px-16 py-16 rounded-md"
+          style={{ boxShadow: '6px 12px 61px rgba(43, 43, 53, 0.05)' }}
+        >
+          <div className="hidden md:block max-w-[262px] w-full mr-6">
+            <Category
+              currentSubCategory={currentSubCategory}
+              handleSelectCategory={handleSelectCategory}
+            />
+            <div className="mt-11">
+              <Filter handleFilter={handleFilter} products={products} />
+            </div>
           </div>
-        </div>
-        <div className="flex-1 md:ml-12 xl:ml-28 2xl:ml-[173px] w-full">
-          <input
-            type="text"
-            placeholder="Search for product"
-            className="border border-[2E2D39]/25 focus:outline-none px-4 py-[10px] w-full md:w-[330px] mb-7 font-poppins text-sm"
-          />
-          <div className="flex items-center font-poppins mb-[30px]">
-            <span className="text-base font-semibold">Sort by</span>
-            <Popover className="relative w-[172px] ml-5">
-              {({ open }) => (
-                <>
-                  <Popover.Button
-                    className={`${
-                      open ? '' : 'text-opacity-90'
-                    } w-full border border-[#DCDDDE] group bg-orange-700 px-4 py-2 inline-flex items-center justify-between text-base font-medium hover:text-opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
-                  >
-                    <span className="text-sm">Select products</span>
+          <div className="flex-1 w-full">
+            <div className="flex items-center font-poppins mb-[30px]">
+              <Listbox value={selected} onChange={setSelected} className="relative w-[172px] z-20">
+                <div className="relative mt-1">
+                  <Listbox.Button className="relative w-full px-4 py-2 text-left bg-white border border-[#DCDDDE] cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm flex items-center justify-between">
+                    <span className="block truncate">
+                      {selected ? selected.name : 'Select products'}
+                    </span>
                     <span>
                       <IconDropdown />
                     </span>
-                  </Popover.Button>
+                  </Listbox.Button>
                   <Transition
                     as={Fragment}
+                    leave="transition ease-in duration-100"
+                    leaveFrom="opacity-100"
+                    leaveTo="opacity-0"
+                  >
+                    <Listbox.Options className="absolute w-full overflow-auto text-base bg-white max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                      {sortFilter.map((filter, personIdx) => (
+                        <Listbox.Option
+                          key={personIdx}
+                          className={({ active }) =>
+                            `${active ? 'text-amber-900 bg-amber-100' : 'text-gray-900'}
+                          cursor-pointer select-none relative px-4 py-2 border border-[#DCDDDE] border-t-0 hover:bg-gray-50 focus:outline-none`
+                          }
+                          value={filter}
+                        >
+                          {/* eslint-disable-next-line no-shadow */}
+                          {({ selected, active }) => (
+                            <>
+                              <span
+                                className={`${
+                                  selected ? 'font-medium' : 'font-normal'
+                                } block truncate`}
+                              >
+                                {filter.name}
+                              </span>
+                              {selected ? (
+                                <span
+                                  className={`${active ? 'text-amber-600' : 'text-amber-600'}
+                                absolute inset-y-0 left-0 flex items-center pl-3`}
+                                />
+                              ) : null}
+                            </>
+                          )}
+                        </Listbox.Option>
+                      ))}
+                    </Listbox.Options>
+                  </Transition>
+                </div>
+              </Listbox>
+            </div>
+            {renderProducts()}
+            {filteredProducts.length > 0 && (
+              <div className="flex items-center justify-end mt-24 mb-64">
+                <ReactPaginate
+                  previousLabel={<IconPaginatePrev active={currentPage !== 0} />}
+                  nextLabel={<IconPaginateNext active={currentPage !== pageCount - 1} />}
+                  breakLabel="..."
+                  breakClassName="break-me"
+                  pageCount={Math.ceil(filteredProducts.length / 12)}
+                  marginPagesDisplayed={2}
+                  pageRangeDisplayed={5}
+                  onPageChange={handlePageClick}
+                  containerClassName="flex flex-row items-center text-sm font-poppins font-semibold"
+                  activeClassName="bg-primary box-border px-[10px] py-[10px] w-[40px] h-[40px] text-center"
+                  activeLinkClassName="text-white"
+                  pageClassName="box-border px-[10px] py-[10px] w-[40px] h-[40px] text-center"
+                  nextClassName={currentPage !== 0 ? 'ml-[24px]' : 'ml-[12px]'}
+                  previousClassName={currentPage !== pageCount - 1 ? 'mr-[24px]' : 'mr-[12px]'}
+                />
+              </div>
+            )}
+            <div className="flex flex-col items-center justify-center">
+              <p className="uppercase text-lg font-semibold mb-4">related products</p>
+              <div className="flex items-center justify-between mb-5">
+                <div className="w-[90px] h-[2px] bg-primary mr-1" />
+                <IconPriceRange />
+                <div className="w-[90px] h-[2px] bg-primary ml-1" />
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 w-full gap-5">
+                {products?.slice(0, 6)?.map((product) => (
+                  <Transition
+                    as="div"
+                    key={product.id}
+                    show
                     enter="transition ease-out duration-200"
                     enterFrom="opacity-0 -translate-y-2"
                     enterTo="opacity-100 translate-y-0"
                     leave="transition ease-in duration-150"
                     leaveFrom="opacity-100 translate-y-0"
-                    leaveTo="opacity-0 -translate-y-2 "
+                    leaveTo="opacity-0 -translate-y-2"
                   >
-                    <Popover.Panel className="absolute z-10 w-[172px] transform -translate-x-1/2 left-1/2 sm:px-0">
-                      <div className="overflow-hidden">
-                        <div className="relative bg-white">
-                          {sortFilter.map((item) => (
-                            <div
-                              key={item.name}
-                              className="flex items-center px-4 py-2 transition duration-150 ease-in-out border border-[#DCDDDE] border-t-0 hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
-                            >
-                              <p className="text-sm">{item.name}</p>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </Popover.Panel>
+                    <Product product={product} />
                   </Transition>
-                </>
-              )}
-            </Popover>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 w-full gap-5">
-            {chunk(products, 9)?.[currentPage]?.map((product) => (
-              <Transition
-                as="div"
-                key={product.id}
-                show
-                enter="transition ease-out duration-200"
-                enterFrom="opacity-0 -translate-y-2"
-                enterTo="opacity-100 translate-y-0"
-                leave="transition ease-in duration-150"
-                leaveFrom="opacity-100 translate-y-0"
-                leaveTo="opacity-0 -translate-y-2"
-              >
-                <Product product={product} />
-              </Transition>
-            ))}
-          </div>
-          <div className="flex items-center justify-center mt-24 mb-64">
-            <ReactPaginate
-              previousLabel={<IconPaginatePrev active={currentPage !== 0} />}
-              nextLabel={<IconPaginateNext active={currentPage !== pageCount - 1} />}
-              breakLabel="..."
-              breakClassName="break-me"
-              pageCount={products.length % 9}
-              marginPagesDisplayed={2}
-              pageRangeDisplayed={5}
-              onPageChange={handlePageClick}
-              containerClassName="flex flex-row items-center text-sm font-poppins font-semibold"
-              activeClassName="bg-primary box-border px-[10px] py-[10px] w-[40px] h-[40px] text-center"
-              activeLinkClassName="text-white"
-              pageClassName="box-border px-[10px] py-[10px] w-[40px] h-[40px] text-center"
-              nextClassName="ml-[24px]"
-              previousClassName="mr-[24px]"
-            />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

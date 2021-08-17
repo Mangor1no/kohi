@@ -11,12 +11,12 @@ const Category = ({ currentSubCategory, handleSelectCategory }) => {
         return (
           <Disclosure
             as="div"
-            className={`font-poppins font-semibold ${category.id === 0 ? '' : 'mt-2'}`}
+            className={`font-semibold ${category.id === 0 ? '' : 'mt-2'}`}
             key={category.id}
           >
             {({ open }) => (
               <>
-                <Disclosure.Button className="flex items-center">
+                <Disclosure.Button className="flex items-center my-4">
                   {open ? (
                     <div className="w-[10px] h-px bg-bgPrimary" />
                   ) : (
@@ -24,7 +24,6 @@ const Category = ({ currentSubCategory, handleSelectCategory }) => {
                   )}
                   <span className="uppercase ml-4 text-base">{category.name}</span>
                 </Disclosure.Button>
-                <div className="h-px w-[90px] bg-[#F2F2F2] mt-4 mb-2" />
                 <Transition
                   as="div"
                   show={open}
@@ -36,13 +35,16 @@ const Category = ({ currentSubCategory, handleSelectCategory }) => {
                   leaveTo="opacity-0 -translate-y-2"
                 >
                   {category.subCategory.map((sub) => (
-                    <Disclosure.Panel className={`w-full pl-[26px] pr-4 py-2 `} key={sub.id}>
+                    <Disclosure.Panel
+                      className={`font-poppins w-full pl-[26px] pr-4 py-2 `}
+                      key={sub.id}
+                    >
                       <button
                         type="button"
                         className={`text-sm text-left ${
                           currentSubCategory === sub.name && 'text-primary'
                         }`}
-                        onClick={() => handleSelectCategory(sub.name)}
+                        onClick={() => handleSelectCategory(sub.name, sub.slug, category.category)}
                       >
                         {sub.name}
                       </button>
