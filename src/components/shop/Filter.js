@@ -97,7 +97,7 @@ const Filter = ({ handleFilter, products }) => {
   const renderFilterBrand = useCallback(() => {
     return (
       <div className="w-full">
-        <ul className="h-48 overflow-y-auto overflow-x-hidden">
+        <ul className="max-h-48 overflow-y-auto overflow-x-hidden">
           {brandList.map((brand, index) => (
             <li
               key={brand}

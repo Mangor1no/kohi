@@ -1,5 +1,6 @@
 import { Disclosure, Transition } from '@headlessui/react';
 import { categories } from 'data/constants';
+import Link from 'next/link';
 import React, { Fragment } from 'react';
 
 const Category = ({ currentSubCategory, handleSelectCategory }) => {
@@ -39,15 +40,19 @@ const Category = ({ currentSubCategory, handleSelectCategory }) => {
                       className={`font-poppins w-full pl-[26px] pr-4 py-2 `}
                       key={sub.id}
                     >
-                      <button
-                        type="button"
-                        className={`text-sm text-left ${
-                          currentSubCategory === sub.name && 'text-primary'
-                        }`}
-                        onClick={() => handleSelectCategory(sub.name, sub.slug, category.category)}
-                      >
-                        {sub.name}
-                      </button>
+                      <Link href={`/shop/${category.category}?type=${sub.slug}`} shallow>
+                        <button
+                          type="button"
+                          className={`text-sm text-left ${
+                            currentSubCategory === sub.name ? 'text-primary' : ''
+                          }`}
+                          onClick={() =>
+                            handleSelectCategory(sub.name, sub.slug, category.category)
+                          }
+                        >
+                          {sub.name}
+                        </button>
+                      </Link>
                     </Disclosure.Panel>
                   ))}
                 </Transition>

@@ -13,7 +13,7 @@ module.exports = {
         // => @media (min-width: 1920px) { ... }
       },
       colors: {
-        primary: '#AA4630',
+        primary: '#A24936',
         disabled: '#B1B1B1',
         active: '#5E1100',
         textPrimary: '#2B2B35',

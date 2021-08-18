@@ -16,6 +16,7 @@
     "framer-motion": "^4.1.17",
     "next": "10.x",
     "next-images": "^1.8.1",
+    "next-redux-wrapper": "^7.0.2",
     "react": "17.x",
     "react-burger-menu": "^3.0.6",
     "react-dom": "17.x",

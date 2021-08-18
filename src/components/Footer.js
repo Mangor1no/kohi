@@ -13,7 +13,7 @@ import {
 const Footer = () => {
   return (
     <>
-      <div className="w-full bg-bgPrimary px-6 lg:px-24 2xl:px-64 pb-32">
+      <div className="w-full bg-[#212227] px-6 lg:px-24 2xl:px-64 pb-32">
         <div>
           <div className="flex flex-col items-center justify-center text-[#F2F2F2]">
             <p className="text-xl mt-[58px] uppercase font-bold">Keep updated</p>
@@ -25,12 +25,12 @@ const Footer = () => {
             <div className="flex items-center h-[50px] w-[300px] md:w-[450px] mt-7 mb-28">
               <input
                 type="text"
-                className="h-full w-full pl-6 font-poppins text-xs placeholder-[#B1B1B1] text-textPrimary focus:outline-none"
+                className="h-full w-full pl-6 font-poppins text-xs placeholder-[#B1B1B1] text-textPrimary focus:outline-none rounded-l-md"
                 placeholder="Your email address"
               />
               <button
                 type="button"
-                className="h-full font-poppins font-semibold text-base bg-primary uppercase px-3 md:px-8"
+                className="h-full font-poppins font-semibold text-base bg-primary uppercase px-3 md:px-8 rounded-r-md"
               >
                 Subscribe
               </button>
@@ -83,7 +83,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-between text-[#B1B1B1] py-6 border-t border-[#B1B1B1] w-full bg-bgPrimary px-6 lg:px-24 2xl:px-64">
+      <div className="flex items-center justify-between text-[#B1B1B1] py-6 border-t border-[#B1B1B1] w-full bg-[#212227] px-6 lg:px-24 2xl:px-64">
         <p className="font-poppins text-xs">
           All right reserved. Copyright © <span className="text-primary">KOHICOFFEE</span>
         </p>

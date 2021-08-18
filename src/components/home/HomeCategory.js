@@ -6,11 +6,12 @@ import categoryLogo01 from 'public/images/home/coffee-maker.png';
 import categoryLogo02 from 'public/images/home/barista-tools.png';
 import categoryLogo03 from 'public/images/home/coffee-beans.png';
 import { IconPriceRange } from 'constants/Icons';
+import { categories } from 'data/constants';
 import CategoryCard from '../CategoryCard';
 
 const categoryImages = [category01, category02, category03];
 const categoryLogoImages = [categoryLogo01, categoryLogo02, categoryLogo03];
-const categoryText = ['COFFEE MACHINE', 'barista tools', 'ACCESSORIES', 'COFFEE BEANS'];
+const categoryText = ['COFFEE MACHINE', 'barista tools', 'COFFEE BEANS'];
 
 const HomeCategory = () => {
   return (
@@ -29,6 +30,7 @@ const HomeCategory = () => {
               image={category}
               text={categoryText[index]}
               logo={categoryLogoImages[index]}
+              category={categories[index]?.category}
             />
           </Fragment>
         ))}

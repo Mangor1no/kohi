@@ -5,7 +5,7 @@ const initialState = {
   data: null,
 };
 
-const usersReducer = (state = initialState, { type, payload }) => {
+const userReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case TYPES.LOAD_USER_REQUEST:
       return {
@@ -28,4 +28,4 @@ const usersReducer = (state = initialState, { type, payload }) => {
   }
 };
 
-export default usersReducer;
+export default userReducer;

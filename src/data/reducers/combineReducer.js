@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux';
-import postsReducer from './postsReducer';
-import usersReducer from './usersReducer';
+import cartReducer from './cart';
+import userReducer from './user';
 
 /**
  * Final Reducer
  */
 const appReducer = combineReducers({
-  posts: postsReducer,
-  users: usersReducer,
+  cart: cartReducer,
+  user: userReducer,
 });
 
 export default appReducer;

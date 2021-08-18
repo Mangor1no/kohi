@@ -9,6 +9,7 @@ const carouselSetting = {
   showThumbs: false,
   showStatus: false,
   dynamicHeight: true,
+  interval: 6000,
 };
 
 const indicatorStyles = {

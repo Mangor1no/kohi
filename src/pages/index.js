@@ -10,6 +10,7 @@ import HomeBestSeller from 'components/home/HomeBestSeller';
 import HomeEmail from 'components/home/HomeEmail';
 import HomeBlog from 'components/home/HomeBlog';
 import HomeClient from 'components/home/HomeClient';
+import Link from 'next/link';
 
 const images = [banner01, banner02, banner03];
 
@@ -48,13 +49,18 @@ export default function Home() {
             <p className="uppercase text-xl md:text-2xl font-bold mb-4 text-center">
               espresso machine special deal this august
             </p>
-            <p className="uppercase text-sm md:text-base font-poppins font-semibold mb-11 max-w-[524px] text-center">
+            <p className="text-base md:text-base font-poppins font-semibold mb-11 max-w-[524px] text-center">
               At August if you buy any espresso machines from Bialetti you will have a discount up
               to 50%
             </p>
-            <button type="button" className="bg-[#F2F2F2] text-textPrimary px-14 py-4 rounded-md">
-              Buy now
-            </button>
+            <Link href="/shop/coffee-machine">
+              <button
+                type="button"
+                className="bg-[#F2F2F2] text-textPrimary px-14 py-4 rounded-md uppercase"
+              >
+                Buy now
+              </button>
+            </Link>
           </div>
         </div>
         <SlideBanner banners={banners} images={images} />

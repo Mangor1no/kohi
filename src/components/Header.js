@@ -4,6 +4,7 @@
 import { Popover, Transition } from '@headlessui/react';
 import { IconCart, IconNavDropdown, IconSearch, IconUser } from 'constants/Icons';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { Fragment, useEffect, useState } from 'react';
 import { useWindowSize } from 'utils/customHooks';
 import BurgerButton from './header/burger';
@@ -13,20 +14,24 @@ const Header = () => {
   const [toggleSearch, setToggleSearch] = useState(false);
   const [toggleMenu, setToggleMenu] = useState(false);
 
+  const { route } = useRouter();
+
+  console.log(route);
+
   const { width } = useWindowSize();
 
   const handleScroll = () => {
     if (width > 786) {
       if (window.pageYOffset > 250) {
         if (!className) {
-          setClassName('#2B2B35');
+          setClassName('#212227');
         }
       } else {
         setClassName('');
       }
     } else if (window.pageYOffset > 30) {
       if (!className) {
-        setClassName('#2B2B35');
+        setClassName('#212227');
       }
     } else {
       setClassName('');
@@ -34,8 +39,12 @@ const Header = () => {
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-  }, []);
+    if (route === '/' || route.includes('/shop') || route === '/cart') {
+      window.addEventListener('scroll', handleScroll);
+    } else {
+      setClassName('#212227');
+    }
+  }, [route]);
 
   return (
     <div
@@ -43,7 +52,9 @@ const Header = () => {
       className="fixed top-0 flex items-center justify-between sm:px-20 py-5 text-white w-full z-30 bg-transparent transition duration-500 ease-in-out"
     >
       <div className="flex items-center justify-between">
-        <p className="text-4xl font-semibold px-3">KOHI</p>
+        <Link href="/">
+          <p className="text-4xl font-semibold px-3 cursor-pointer">KOHI</p>
+        </Link>
       </div>
       <div className="hidden 2xl:flex items-center justify-between">
         <div className="flex items-center justify-between">
@@ -54,7 +65,7 @@ const Header = () => {
                   <Popover.Button
                     className={`
                 ${open ? '' : 'text-opacity-90'}
-                text-white group bg-orange-700 px-3 py-2 rounded-md inline-flex items-center text-base font-medium hover:text-opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
+                text-white group bg-orange-700 rounded-md inline-flex items-center text-base font-medium hover:text-opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
                   >
                     <span className="mr-2">SHOP</span>
                     <IconNavDropdown />
@@ -176,7 +187,7 @@ const Header = () => {
                   <Popover.Button
                     className={`${
                       open ? '' : 'text-opacity-90'
-                    } text-white group bg-orange-700 px-3 py-2 rounded-md inline-flex items-center text-base font-medium hover:text-opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
+                    } text-white group bg-orange-700 rounded-md inline-flex items-center text-base font-medium hover:text-opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
                   >
                     <span className="mr-2">MORE</span>
                     <IconNavDropdown />

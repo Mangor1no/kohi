@@ -12,7 +12,8 @@ import ReactPaginate from 'react-paginate';
 import { chunk } from 'utils/helpers';
 
 const Shop = () => {
-  const { query } = useRouter();
+  const router = useRouter();
+  const { query } = router;
 
   const sortFilter = [
     {
@@ -44,11 +45,27 @@ const Shop = () => {
   const [filterColor, setFilterColor] = useState([]);
   const [filterBrand, setFilterBrand] = useState([]);
   const [filterPriceRange, setFilterPriceRange] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const current = categories.filter((cat) => cat.category === query.category)[0];
-    setCurrentSubCategory(current?.subCategory[0]?.name);
-    setPageCount(Math.ceil(products.length / 12));
+    let current;
+    if (query?.type) {
+      current = categories
+        .filter((cat) => cat.category === query.category)?.[0]
+        ?.subCategory?.filter((subCat) => subCat.slug === query?.type)[0];
+    } else {
+      current = categories.filter((cat) => cat.category === query.category)[0]?.subCategory?.[0];
+    }
+    if (!current) {
+      router.push('/404');
+    } else {
+      if (query?.category) {
+        setCurrentCategory(query?.category);
+      }
+      setCurrentSubCategory(current?.name);
+      setPageCount(Math.ceil(products.length / 12));
+      setIsLoading(false);
+    }
   }, [query]);
 
   useEffect(() => {
@@ -57,10 +74,10 @@ const Shop = () => {
       data = coffeeMachines;
     }
     if (currentCategory === categories?.[1]?.category) {
-      data = coffeeBeans;
+      data = baristaTools;
     }
     if (currentCategory === categories?.[2]?.category) {
-      data = baristaTools;
+      data = coffeeBeans;
     }
     setProducts(data);
     setFilteredProducts(data);
@@ -70,15 +87,21 @@ const Shop = () => {
     let tempProd = [...products];
     setCurrentPage(0);
 
-    if (currentSubCategorySlug !== 'all-machines') {
-      tempProd = tempProd.filter((prod) => prod.subCategory === currentSubCategorySlug);
+    if (
+      currentSubCategorySlug !== 'all-machines' &&
+      currentSubCategorySlug !== 'all-tools' &&
+      currentSubCategorySlug !== 'all-beans-types'
+    ) {
+      tempProd = tempProd.filter((prod) => {
+        return prod.subCategory === currentSubCategorySlug;
+      });
     } else {
       tempProd = [...products];
     }
 
     if (filterBrand.length > 0) {
       tempProd = filterBrand
-        .map((select) => tempProd.filter((prod) => prod.brand === select))
+        ?.map((select) => tempProd.filter((prod) => prod.brand === select))
         .flat();
     }
 
@@ -86,7 +109,7 @@ const Shop = () => {
       tempProd = [
         ...new Set(
           filterColor
-            .map((select) => tempProd.filter((prod) => prod.variations.includes(select)))
+            ?.map((select) => tempProd.filter((prod) => prod.variations.includes(select)))
             .flat()
         ),
       ];
@@ -162,6 +185,8 @@ const Shop = () => {
     );
   }, [currentPage, filteredProducts, currentCategory]);
 
+  if (isLoading) return null;
+
   return (
     <Layout>
       <div className="h-[500px] min-h-[500px] w-full relative">
@@ -203,7 +228,7 @@ const Shop = () => {
                     leaveTo="opacity-0"
                   >
                     <Listbox.Options className="absolute w-full overflow-auto text-base bg-white max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                      {sortFilter.map((filter, personIdx) => (
+                      {sortFilter?.map((filter, personIdx) => (
                         <Listbox.Option
                           key={personIdx}
                           className={({ active }) =>

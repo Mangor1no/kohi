@@ -77,6 +77,9 @@ const BurgerButton = ({ navbarOpen }) => {
     bmBurgerBarsHover: {
       background: '#a90000',
     },
+    bmBurgerButton: {
+      position: 'relative',
+    },
     bmCrossButton: {
       height: '24px',
       width: '24px',
@@ -120,18 +123,18 @@ const BurgerButton = ({ navbarOpen }) => {
       right
       styles={styles}
       customBurgerIcon={
-        <div>
+        <>
           <div style={{ ...burgerStyles.line, ...burgerStyles.lineTop }} />
           <div style={{ ...burgerStyles.line, ...burgerStyles.lineMiddle }} />
           <div style={{ ...burgerStyles.line, ...burgerStyles.lineBottom }} />
-        </div>
+        </>
       }
       customCrossIcon={
-        <div>
+        <>
           <div style={{ ...burgerCloseStyles.line, ...burgerCloseStyles.lineTop }} />
           <div style={{ ...burgerCloseStyles.line, ...burgerCloseStyles.lineMiddle }} />
           <div style={{ ...burgerCloseStyles.line, ...burgerCloseStyles.lineBottom }} />
-        </div>
+        </>
       }
     >
       <div className={navbarOpen ? 'block' : 'hidden'}>
@@ -232,7 +235,7 @@ const BurgerButton = ({ navbarOpen }) => {
         <p className="text-base uppercase p-2 hover:text-primary">contact</p>
         <Disclosure>
           {({ open }) => (
-            <div className={open && 'mb-4'}>
+            <div className={open ? 'mb-4' : ''}>
               <Disclosure.Button className="flex items-center w-full p-2 text-left">
                 <span className="text-base uppercase mr-2 hover:text-primary">More</span>
                 <IconNavDropdown color="#2B2B35" />

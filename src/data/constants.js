@@ -39,43 +39,6 @@ export const categories = [
   },
   {
     id: 1,
-    category: 'coffee-beans',
-    name: 'Coffee beans',
-    subCategory: [
-      {
-        id: 0,
-        slug: 'all-beans-types',
-        name: 'All Beans Types',
-      },
-      {
-        id: 1,
-        slug: 'capsules',
-        name: 'Capsules',
-      },
-      {
-        id: 2,
-        slug: 'ground',
-        name: 'Ground',
-      },
-      {
-        id: 3,
-        slug: 'roasted',
-        name: 'Roasted',
-      },
-      {
-        id: 4,
-        slug: 'speciality',
-        name: 'Speciality',
-      },
-      {
-        id: 5,
-        slug: 'whole-beans',
-        name: 'Whole Beans',
-      },
-    ],
-  },
-  {
-    id: 2,
     category: 'barista-tools',
     name: 'BARISTA TOOLS',
     subCategory: [
@@ -113,6 +76,43 @@ export const categories = [
         id: 6,
         slug: 'servers',
         name: 'Servers',
+      },
+    ],
+  },
+  {
+    id: 2,
+    category: 'coffee-beans',
+    name: 'Coffee beans',
+    subCategory: [
+      {
+        id: 0,
+        slug: 'all-beans-types',
+        name: 'All Beans Types',
+      },
+      {
+        id: 1,
+        slug: 'capsules',
+        name: 'Capsules',
+      },
+      {
+        id: 2,
+        slug: 'ground',
+        name: 'Ground',
+      },
+      {
+        id: 3,
+        slug: 'roasted',
+        name: 'Roasted',
+      },
+      {
+        id: 4,
+        slug: 'speciality',
+        name: 'Speciality',
+      },
+      {
+        id: 5,
+        slug: 'whole-beans',
+        name: 'Whole Beans',
       },
     ],
   },

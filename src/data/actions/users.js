@@ -1,5 +1,5 @@
 import * as TYPES from 'data/types';
-import { profileDataSelector, profileIsFetchingSelector } from 'data/selectors/usersSelector';
+import { profileDataSelector, profileIsFetchingSelector } from 'data/selectors/userSelector';
 
 export const fetchUser = () => async (dispatch, getState) => {
   try {
