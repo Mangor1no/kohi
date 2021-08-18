@@ -11,7 +11,7 @@ const Product = ({ product }) => {
 
   return (
     <div
-      className="w-full h-full border border-[#7F7F7F20] rounded-md"
+      className="w-full h-full border border-[#7F7F7F20] rounded-md group"
       style={{ boxShadow: '6px 12px 61px rgba(43, 43, 53, 0.05)' }}
     >
       <div className="w-full md:px-[45px] md:py-[50px] bg-[#F2F2F2] flex items-center justify-center rounded-t-md rounded-b-2xl relative overflow-hidden">
@@ -23,7 +23,7 @@ const Product = ({ product }) => {
         <img
           src={product?.image?.[0]}
           alt={product?.name}
-          className="md:w-full h-full object-cover z-10"
+          className="md:w-full h-full object-cover z-10 transition duration-500 ease-in-out group-hover:scale-110"
         />
       </div>
       <div className="m-6">

@@ -1030,3 +1030,33 @@ export const coffeeBeans = [
 ];
 
 export const filterType = ['brand', 'price', 'color'];
+
+export const blogs = [
+  {
+    id: 0,
+    createdAt: Date.now(),
+    category: 'coffee-machine',
+    title: 'HOW To make coffee at home',
+    shortDesc:
+      'To make true Italian espresso at home that rivals what you’d get in a coffee shop, you need an manual espresso machine to make good coffee.',
+    banner: '/images/home/home-blog-2.jpg',
+  },
+  {
+    id: 1,
+    createdAt: Date.now(),
+    category: 'coffee-beans',
+    title: 'Beginner guide to COFFEE GRINDER ',
+    shortDesc:
+      'The purpose of this section is to let you in on all the little things that you don’t normally hear about coffee grinders. Here is some of my explaination.',
+    banner: '/images/home/home-blog-2.jpg',
+  },
+  {
+    id: 2,
+    createdAt: Date.now(),
+    category: 'coffee-machine',
+    title: 'TOP 3 espresso machines 2021',
+    shortDesc:
+      "If you're looking to cut down on visits to your local coffee shop, the best home espresso machines can help you get your coffee right in your own kitchen.",
+    banner: '/images/home/home-blog-2.jpg',
+  },
+];
