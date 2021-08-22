@@ -1,9 +1,24 @@
+/* eslint-disable max-lines */
 import { Disclosure } from '@headlessui/react';
 import { IconNavDropdown } from 'constants/Icons';
+import { signOut } from 'data/actions/users';
+import { isAuthSelector } from 'data/selectors/userSelector';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { slide as Menu } from 'react-burger-menu';
+import { useDispatch, useSelector } from 'react-redux';
 
 const BurgerButton = ({ navbarOpen }) => {
+  const dispatch = useDispatch();
+
+  const isAuth = useSelector(isAuthSelector);
+
+  const router = useRouter();
+  const handleSignOut = async () => {
+    await dispatch(signOut());
+    router.push('/');
+  };
+
   const burgerStyles = {
     burgerContainer: {
       height: '32px',
@@ -252,6 +267,42 @@ const BurgerButton = ({ navbarOpen }) => {
                     <Link href="/">
                       <a className="mb-[10px] hover:text-primary">Location</a>
                     </Link>
+                  </div>
+                </div>
+              </Disclosure.Panel>
+            </div>
+          )}
+        </Disclosure>
+        <Link href="/cart">
+          <a className="text-base uppercase p-2 hover:text-primary">cart</a>
+        </Link>
+        <Disclosure>
+          {({ open }) => (
+            <div className={open ? 'mb-4' : ''}>
+              <Disclosure.Button className="flex items-center w-full p-2 text-left">
+                <span className="text-base uppercase mr-2 hover:text-primary">Account</span>
+                <IconNavDropdown color="#2B2B35" />
+              </Disclosure.Button>
+              <Disclosure.Panel className="px-4">
+                <div>
+                  <div className="font-poppins text-sm flex flex-col justify-center">
+                    {isAuth ? (
+                      <>
+                        <Link href="/profile">
+                          <a className="mb-[10px] hover:text-primary">Account</a>
+                        </Link>
+                        <Link href="/profile/wishlist">
+                          <a className="mb-[10px] hover:text-primary">Wishlist</a>
+                        </Link>
+                        <button type="button" className="w-full" onClick={handleSignOut}>
+                          <p className="hover:text-primary text-left">Sign out</p>
+                        </button>
+                      </>
+                    ) : (
+                      <Link href="/auth">
+                        <a className="hover:text-primary min-w-max">Sign in</a>
+                      </Link>
+                    )}
                   </div>
                 </div>
               </Disclosure.Panel>

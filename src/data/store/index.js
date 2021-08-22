@@ -1,5 +1,7 @@
 import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
 /**
  * Middleware
  */
@@ -15,9 +17,17 @@ const initialState = {};
 
 let store;
 
+const persistConfig = {
+  key: 'root',
+  storage,
+  whitelist: ['cart', 'user'],
+};
+
+const persistedReducer = persistReducer(persistConfig, appReducer);
+
 export function configStore(preloadedState = initialState) {
   store = createStore(
-    appReducer,
+    persistedReducer,
     preloadedState,
     composeWithDevTools(applyMiddleware(...finalMiddleware))
   );
@@ -51,5 +61,6 @@ export const initializeStore = (preloadedState) => {
 export function useStore(initialState) {
   // eslint-disable-next-line no-shadow
   const store = useMemo(() => initializeStore(initialState), [initialState]);
-  return store;
+  const persistor = persistStore(store);
+  return { store, persistor };
 }

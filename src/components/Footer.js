@@ -39,8 +39,8 @@ const Footer = () => {
               <div className="md:col-span-2">
                 <p className="uppercase text-xl font-semibold text-white">Kohi</p>
                 <div className="font-poppins text-sm text-[#B1B1B1]">
-                  <p className="my-[14px]">
-                    We introduce you the best coffee and best coffee machine
+                  <p className="my-[14px] text-[#F2F2F2]">
+                    We provide the best coffee machines & beans
                   </p>
                   <p className="flex items-center mb-[14px]">
                     <IconMail />

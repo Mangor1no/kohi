@@ -3,9 +3,12 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { Popover, Transition } from '@headlessui/react';
 import { IconCart, IconNavDropdown, IconSearch, IconUser } from 'constants/Icons';
+import { signOut } from 'data/actions/users';
+import { isAuthSelector } from 'data/selectors/userSelector';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { Fragment, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useWindowSize } from 'utils/customHooks';
 import BurgerButton from './header/burger';
 
@@ -14,9 +17,11 @@ const Header = () => {
   const [toggleSearch, setToggleSearch] = useState(false);
   const [toggleMenu, setToggleMenu] = useState(false);
 
-  const { route } = useRouter();
+  const dispatch = useDispatch();
 
-  console.log(route);
+  const isAuth = useSelector(isAuthSelector);
+
+  const router = useRouter();
 
   const { width } = useWindowSize();
 
@@ -39,12 +44,21 @@ const Header = () => {
   };
 
   useEffect(() => {
-    if (route === '/' || route.includes('/shop') || route === '/cart') {
+    if (
+      router?.route === '/' ||
+      (router?.route.includes('/shop') && !router?.route.includes('/shop/product')) ||
+      router?.route === '/cart'
+    ) {
       window.addEventListener('scroll', handleScroll);
     } else {
       setClassName('#212227');
     }
-  }, [route]);
+  }, [router?.route]);
+
+  const handleSignOut = async () => {
+    await dispatch(signOut());
+    router.push('/');
+  };
 
   return (
     <div
@@ -228,12 +242,61 @@ const Header = () => {
           <div className="mr-[50px]">
             <IconSearch />
           </div>
-          <div className="mr-[50px]">
-            <IconUser />
+          <div className="mr-[50px] flex items-center justify-between group relative">
+            <Popover className="relative flex justify-center">
+              {({ open }) => (
+                <>
+                  <Popover.Button
+                    className={`${
+                      open ? '' : 'text-opacity-90'
+                    } text-white group bg-orange-700 rounded-md inline-flex items-center text-base font-medium hover:text-opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
+                  >
+                    <IconUser />
+                  </Popover.Button>
+                  <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-200"
+                    enterFrom="opacity-0 translate-y-1"
+                    enterTo="opacity-100 translate-y-0"
+                    leave="transition ease-in duration-150"
+                    leaveFrom="opacity-100 translate-y-0"
+                    leaveTo="opacity-0 translate-y-1"
+                  >
+                    <Popover.Panel className="absolute z-10 px-4 mt-9 transform -translate-x-1/2 left-1/2 sm:px-0">
+                      <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
+                        <div className="relative grid bg-white p-7 py-5 text-textPrimary">
+                          <div className="font-poppins text-sm flex flex-col justify-center">
+                            {isAuth ? (
+                              <>
+                                <Link href="/profile">
+                                  <a className="mb-[10px] hover:text-primary">Account</a>
+                                </Link>
+                                <Link href="/profile/wishlist">
+                                  <a className="mb-[10px] hover:text-primary">Wishlist</a>
+                                </Link>
+                                <button type="button" className="w-full" onClick={handleSignOut}>
+                                  <p className="hover:text-primary">Sign out</p>
+                                </button>
+                              </>
+                            ) : (
+                              <Link href="/auth">
+                                <a className="hover:text-primary min-w-max">Sign in</a>
+                              </Link>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    </Popover.Panel>
+                  </Transition>
+                </>
+              )}
+            </Popover>
           </div>
-          <div>
-            <IconCart />
-          </div>
+          <Link href="/cart">
+            <a>
+              <IconCart />
+            </a>
+          </Link>
         </div>
       </div>
       <div className="block 2xl:hidden">

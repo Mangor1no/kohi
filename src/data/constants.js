@@ -955,7 +955,7 @@ export const baristaTools = [
       "The better result are obtaines using De'longhi calibrated coffee tamper to give the right pressure to ground coffee into the filter.",
     stock: 42,
     metadata: {
-      detail: {
+      details: {
         dimensions: '51.5x51.5x90.9mm',
         weight: '283.50g',
         material: 'Metal',
@@ -977,7 +977,7 @@ export const baristaTools = [
     ],
     rating: 5,
     price: 14.99,
-    variations: ['white', 'gray'],
+    variations: ['#F2F2F2', 'gray'],
     brand: 'Delonghi',
     description:
       'Serve robust espresso at home in double-wall-insulated glasses that keep drinks hot or cold and limit condensation. The dishwasher-safe design allows quick and easy cleaning.',
@@ -1020,8 +1020,8 @@ export const coffeeBeans = [
         dimensions: '255x70x80mm',
         weight: '0.26g',
         flavor: 'Flower, Dried Fruit',
-        roastLevel: 'Medium-roast',
-        specialIngredient: 'Italia Espresso Roasted',
+        roast_level: 'Medium-roast',
+        special_ingredient: 'Italia Espresso Roasted',
         model: '8006363031646',
         country: 'Italia',
       },

@@ -57,7 +57,7 @@ const Shop = () => {
       current = categories.filter((cat) => cat.category === query.category)[0]?.subCategory?.[0];
     }
     if (!current) {
-      router.push('/404');
+      // router.push('/404');
     } else {
       if (query?.category) {
         setCurrentCategory(query?.category);
