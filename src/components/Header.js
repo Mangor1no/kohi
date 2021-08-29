@@ -224,12 +224,14 @@ const Header = () => {
             </Popover>
           </div>
           <Link href="/blog">
-            <p className="mr-[50px]">BLOG</p>
+            <a className="mr-[50px]">BLOG</a>
           </Link>
           <Link href="/service">
-            <p className="mr-[50px]">SERVICES</p>
+            <a className="mr-[50px]">SERVICES</a>
           </Link>
-          <p className="mr-[50px]">CONTACT</p>
+          <Link href="/contact">
+            <a className="mr-[50px]">CONTACT</a>
+          </Link>
           <div className="mr-[50px] flex items-center justify-between group relative">
             <Popover className="relative">
               {({ open }) => (

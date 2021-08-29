@@ -81,7 +81,7 @@ const Product = ({ product }) => {
         >
           <button
             type="button"
-            className="absolute bottom-0 text-white bg-primary w-full text-center py-2 uppercase hidden group-hover:block transition duration-300 ease-in-out"
+            className="absolute bottom-0 rounded-b-2xl bg-primary text-white border border-primary hover:text-primary hover:bg-[#F2F2F2] active:bg-active active:border-active active:text-white transition duration-150 ease-in-out w-full text-center py-2 uppercase hidden group-hover:block"
           >
             View details
           </button>

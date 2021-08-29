@@ -511,8 +511,8 @@ const Cart = () => {
       <div
         className={`my-24 ${
           step < 2
-            ? 'max-w-[1400px] px-4 md:px-14 py-16 bg-white mx-6 lg:mx-16 xl:mx-48 2xl:mx-64'
-            : 'mx-auto px-4'
+            ? 'max-w-[1400px] md:px-14 py-16 bg-white mx-6 lg:mx-16 xl:mx-48 2xl:mx-64'
+            : 'mx-auto'
         } rounded-md`}
         style={{ boxShadow: '6px 12px 61px rgba(43, 43, 53, 0.05)' }}
       >
@@ -577,7 +577,7 @@ const Cart = () => {
                   <Link href="/shop">
                     <a
                       type="button"
-                      className="bg-primary text-[#F2F2F2] uppercase w-full py-[10px] rounded-b-md text-center"
+                      className="bg-primary text-white border border-primary hover:text-primary hover:bg-[#F2F2F2] active:bg-active active:border-active active:text-white transition duration-150 ease-in-out uppercase w-full py-[10px] rounded-b-md text-center"
                     >
                       <span>Back to shop</span>
                     </a>
@@ -603,7 +603,7 @@ const Cart = () => {
                   {isAuth ? (
                     <button
                       type="button"
-                      className="bg-primary text-[#F2F2F2] uppercase w-full py-[10px] rounded-b-md"
+                      className="bg-primary text-white border border-primary hover:text-primary hover:bg-[#F2F2F2] active:bg-active active:border-active active:text-white transition duration-150 ease-in-out uppercase w-full py-[10px] rounded-b-md"
                       onClick={() => handleCheckout('forward')}
                     >
                       <span>Checkout</span>
@@ -612,7 +612,7 @@ const Cart = () => {
                     <Link href="/auth">
                       <button
                         type="button"
-                        className="bg-primary text-[#F2F2F2] uppercase w-full py-[10px] rounded-b-md"
+                        className="bg-primary text-white border border-primary hover:text-primary hover:bg-[#F2F2F2] active:bg-active active:border-active active:text-white transition duration-150 ease-in-out uppercase w-full py-[10px] rounded-b-md"
                       >
                         <span>Sign in to continue</span>
                       </button>

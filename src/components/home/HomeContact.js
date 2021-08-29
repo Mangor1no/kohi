@@ -24,7 +24,7 @@ const HomeContact = () => {
               />
               <button
                 type="button"
-                className="text-center -ml-px bg-primary border border-primary text-white uppercase text-base rounded-r-md px-4 md:px-[42px] pt-[10px] pb-[11px] max-w-max hover:bg-transparent transition duration-300 ease-in-out"
+                className="text-center -ml-px bg-primary text-white border border-primary hover:text-primary hover:bg-[#F2F2F2] active:bg-active active:border-active active:text-white uppercase text-base rounded-r-md px-4 md:px-[42px] pt-[10px] pb-[11px] max-w-max hover:bg-transparent transition duration-300 ease-in-out"
               >
                 Join
               </button>

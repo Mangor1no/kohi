@@ -17,7 +17,7 @@ const ServiceRequest = () => {
     }
   }, [query]);
 
-  const handerSendRequest = () => {
+  const handleSendRequest = () => {
     toast('Your request has been sent successfully', {
       position: 'top-right',
       autoClose: 5000,
@@ -125,8 +125,8 @@ const ServiceRequest = () => {
           </div>
           <button
             type="button"
-            className="col-span-full font-oswald bg-primary text-white uppercase px-4 py-3 mt-12"
-            onClick={handerSendRequest}
+            className="col-span-full font-oswald bg-primary text-white border border-primary hover:text-primary hover:bg-[#F2F2F2] active:bg-active active:border-active active:text-white transition duration-150 ease-in-out uppercase px-4 py-3 mt-12"
+            onClick={handleSendRequest}
           >
             Book now
           </button>

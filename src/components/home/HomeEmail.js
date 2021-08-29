@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 const HomeEmail = () => {
@@ -13,12 +14,14 @@ const HomeEmail = () => {
           customized taste quiz and get information. Also, find out the special flavour famous
           Aracabi coffee beans in the world.
         </p>
-        <button
-          type="button"
-          className="py-[10px] px-[50px] border text-white bg-primary rounded-md uppercase text-base max-w-max hover:bg-transparent hover:text-textPrimary hover:border-primary transition duration-300 ease-in-out"
-        >
-          Read more
-        </button>
+        <Link href="/blog">
+          <button
+            type="button"
+            className="py-[10px] px-[50px] border text-white bg-primary rounded-md uppercase text-base max-w-max border-primary hover:text-primary hover:bg-[#F2F2F2] active:bg-active active:border-active active:text-white transition duration-300 ease-in-out"
+          >
+            Read more
+          </button>
+        </Link>
       </div>
       <div className="hidden md:grid lg:grid-cols-2 gap-5">
         <div className="w-full h-full overflow-hidden rounded-md">

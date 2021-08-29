@@ -163,7 +163,7 @@ const ProductInfo = ({ info }) => {
           onClick={handleAddToCart}
           className={`py-[10px] px-10 border rounded-md text-base uppercase ${
             allowAddToCart
-              ? 'border-primary bg-primary text-[#F2F2F2] hover:bg-white hover:text-primary transition duration-300 ease-in-out'
+              ? 'bg-primary text-white border border-primary hover:text-primary hover:bg-[#F2F2F2] active:bg-active active:border-active active:text-white transition duration-150 ease-in-out'
               : 'cursor-not-allowed bg-[#F2F2F2]'
           }`}
         >

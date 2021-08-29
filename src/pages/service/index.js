@@ -52,7 +52,7 @@ const Service = () => {
               <Link href="/shop">
                 <button
                   type="button"
-                  className="bg-primary text-white w-[180px] h-12 text-base uppercase"
+                  className="bg-primary text-white border border-primary hover:text-primary hover:bg-[#F2F2F2] active:bg-active active:border-active active:text-white transition duration-150 ease-in-out w-[180px] h-12 text-base uppercase"
                 >
                   shop now
                 </button>
@@ -83,7 +83,7 @@ const Service = () => {
               <Link href="/service/request?type=delivery-service">
                 <button
                   type="button"
-                  className="bg-primary text-white w-[180px] h-12 text-base uppercase"
+                  className="bg-primary text-white border border-primary hover:text-primary hover:bg-[#F2F2F2] active:bg-active active:border-active active:text-white transition duration-150 ease-in-out w-[180px] h-12 text-base uppercase"
                 >
                   Service request
                 </button>
@@ -110,7 +110,7 @@ const Service = () => {
               <Link href="/service/request?type=maintenance-and-repair-service">
                 <button
                   type="button"
-                  className="bg-primary text-white w-[180px] h-12 text-base uppercase"
+                  className="bg-primary text-white border border-primary hover:text-primary hover:bg-[#F2F2F2] active:bg-active active:border-active active:text-white transition duration-150 ease-in-out w-[180px] h-12 text-base uppercase"
                 >
                   Service request
                 </button>
@@ -137,7 +137,7 @@ const Service = () => {
               <Link href="/service/request?type=return-and-refund-services">
                 <button
                   type="button"
-                  className="bg-primary text-white w-[180px] h-12 text-base uppercase"
+                  className="bg-primary text-white border border-primary hover:text-primary hover:bg-[#F2F2F2] active:bg-active active:border-active active:text-white transition duration-150 ease-in-out w-[180px] h-12 text-base uppercase"
                 >
                   Service request
                 </button>

@@ -84,7 +84,7 @@ const Comment = () => {
         </button>
         <button
           type="button"
-          className="w-[90px] py-2 text-white bg-primary border border-primary"
+          className="w-[90px] py-2 bg-primary text-white border border-primary hover:text-primary hover:bg-[#F2F2F2] active:bg-active active:border-active active:text-white transition duration-150 ease-in-out"
           onClick={handlePost}
         >
           Post
