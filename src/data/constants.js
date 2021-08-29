@@ -1040,6 +1040,63 @@ export const blogs = [
     shortDesc:
       'To make true Italian espresso at home that rivals what you’d get in a coffee shop, you need an manual espresso machine to make good coffee.',
     banner: '/images/home/home-blog-2.jpg',
+    author: 'Minh Ngoc',
+    content: `
+            <div class="font-poppins text-sm">
+              <p class="mb-4">
+                If you're looking to cut down on visits to your local coffee shop, the best home
+                espresso machines can help you get your latte or cappuccino right in your own
+                kitchen. The best home espresso machines offer much more than a basic brew, they
+                appeal to both newbies and budding baristas looking to take their caffeine devotion
+                to the next level.
+              </p>
+              <p class="uppercase mb-2 font-base font-bold">1. Bialetti espresso machine</p>
+              <p>
+                You’ll have an espresso, latte, or cappuccino in minutes with De’Longhi’s
+                super-automatic machine. It comes with a built-in burr grinder with 13 settings, or
+                you can use your own pre-ground beans in the second chamber. In addition to
+                selecting from automatic single or double brewing options, you can also customize
+                the espresso strength, size, temperature to your tastes.
+              </p>
+              <div class="flex items-center justify-center my-4">
+                <img
+                  src="/images/coffee-machine-2.png"
+                  alt="Bialetti"
+                  class="max-h-[250px] object-cover"
+                />
+              </div>
+              <p class="uppercase mb-2 font-base font-bold">2. delonghi espresso machine</p>
+              <p>
+                You’ll have an espresso, latte, or cappuccino in minutes with De’Longhi’s
+                super-automatic machine. It comes with a built-in burr grinder with 13 settings, or
+                you can use your own pre-ground beans in the second chamber. In addition to
+                selecting from automatic single or double brewing options, you can also customize
+                the espresso strength, size, temperature to your tastes.
+              </p>
+              <div class="flex items-center justify-center my-4">
+                <img
+                  src="/images/coffee-machine-4.png"
+                  alt="Bialetti"
+                  class="max-h-[250px] object-cover"
+                />
+              </div>
+              <p class="uppercase mb-2 font-base font-bold">3. NESPRESSO espresso machine</p>
+              <p>
+                You’ll have an espresso, latte, or cappuccino in minutes with De’Longhi’s
+                super-automatic machine. It comes with a built-in burr grinder with 13 settings, or
+                you can use your own pre-ground beans in the second chamber. In addition to
+                selecting from automatic single or double brewing options, you can also customize
+                the espresso strength, size, temperature to your tastes.
+              </p>
+              <div class="flex items-center justify-center my-4">
+                <img
+                  src="/images/coffee-machine-3.png"
+                  alt="Bialetti"
+                  class="max-h-[250px] object-cover"
+                />
+              </div>
+            </div>
+          `,
   },
   {
     id: 1,
@@ -1049,6 +1106,63 @@ export const blogs = [
     shortDesc:
       'The purpose of this section is to let you in on all the little things that you don’t normally hear about coffee grinders. Here is some of my explaination.',
     banner: '/images/home/home-blog-2.jpg',
+    author: 'Minh Ngoc',
+    content: `
+            <div class="font-poppins text-sm">
+              <p class="mb-4">
+                If you're looking to cut down on visits to your local coffee shop, the best home
+                espresso machines can help you get your latte or cappuccino right in your own
+                kitchen. The best home espresso machines offer much more than a basic brew, they
+                appeal to both newbies and budding baristas looking to take their caffeine devotion
+                to the next level.
+              </p>
+              <p class="uppercase mb-2 font-base font-bold">1. Bialetti espresso machine</p>
+              <p>
+                You’ll have an espresso, latte, or cappuccino in minutes with De’Longhi’s
+                super-automatic machine. It comes with a built-in burr grinder with 13 settings, or
+                you can use your own pre-ground beans in the second chamber. In addition to
+                selecting from automatic single or double brewing options, you can also customize
+                the espresso strength, size, temperature to your tastes.
+              </p>
+              <div class="flex items-center justify-center my-4">
+                <img
+                  src="/images/coffee-machine-2.png"
+                  alt="Bialetti"
+                  class="max-h-[250px] object-cover"
+                />
+              </div>
+              <p class="uppercase mb-2 font-base font-bold">2. delonghi espresso machine</p>
+              <p>
+                You’ll have an espresso, latte, or cappuccino in minutes with De’Longhi’s
+                super-automatic machine. It comes with a built-in burr grinder with 13 settings, or
+                you can use your own pre-ground beans in the second chamber. In addition to
+                selecting from automatic single or double brewing options, you can also customize
+                the espresso strength, size, temperature to your tastes.
+              </p>
+              <div class="flex items-center justify-center my-4">
+                <img
+                  src="/images/coffee-machine-4.png"
+                  alt="Bialetti"
+                  class="max-h-[250px] object-cover"
+                />
+              </div>
+              <p class="uppercase mb-2 font-base font-bold">3. NESPRESSO espresso machine</p>
+              <p>
+                You’ll have an espresso, latte, or cappuccino in minutes with De’Longhi’s
+                super-automatic machine. It comes with a built-in burr grinder with 13 settings, or
+                you can use your own pre-ground beans in the second chamber. In addition to
+                selecting from automatic single or double brewing options, you can also customize
+                the espresso strength, size, temperature to your tastes.
+              </p>
+              <div class="flex items-center justify-center my-4">
+                <img
+                  src="/images/coffee-machine-3.png"
+                  alt="Bialetti"
+                  class="max-h-[250px] object-cover"
+                />
+              </div>
+            </div>
+          `,
   },
   {
     id: 2,
@@ -1058,5 +1172,128 @@ export const blogs = [
     shortDesc:
       "If you're looking to cut down on visits to your local coffee shop, the best home espresso machines can help you get your coffee right in your own kitchen.",
     banner: '/images/home/home-blog-2.jpg',
+    author: 'Minh Ngoc',
+    content: `
+            <div class="font-poppins text-sm">
+              <p class="mb-4">
+                If you're looking to cut down on visits to your local coffee shop, the best home
+                espresso machines can help you get your latte or cappuccino right in your own
+                kitchen. The best home espresso machines offer much more than a basic brew, they
+                appeal to both newbies and budding baristas looking to take their caffeine devotion
+                to the next level.
+              </p>
+              <p class="uppercase mb-2 font-base font-bold">1. Bialetti espresso machine</p>
+              <p>
+                You’ll have an espresso, latte, or cappuccino in minutes with De’Longhi’s
+                super-automatic machine. It comes with a built-in burr grinder with 13 settings, or
+                you can use your own pre-ground beans in the second chamber. In addition to
+                selecting from automatic single or double brewing options, you can also customize
+                the espresso strength, size, temperature to your tastes.
+              </p>
+              <div class="flex items-center justify-center my-4">
+                <img
+                  src="/images/coffee-machine-2.png"
+                  alt="Bialetti"
+                  class="max-h-[250px] object-cover"
+                />
+              </div>
+              <p class="uppercase mb-2 font-base font-bold">2. delonghi espresso machine</p>
+              <p>
+                You’ll have an espresso, latte, or cappuccino in minutes with De’Longhi’s
+                super-automatic machine. It comes with a built-in burr grinder with 13 settings, or
+                you can use your own pre-ground beans in the second chamber. In addition to
+                selecting from automatic single or double brewing options, you can also customize
+                the espresso strength, size, temperature to your tastes.
+              </p>
+              <div class="flex items-center justify-center my-4">
+                <img
+                  src="/images/coffee-machine-4.png"
+                  alt="Bialetti"
+                  class="max-h-[250px] object-cover"
+                />
+              </div>
+              <p class="uppercase mb-2 font-base font-bold">3. NESPRESSO espresso machine</p>
+              <p>
+                You’ll have an espresso, latte, or cappuccino in minutes with De’Longhi’s
+                super-automatic machine. It comes with a built-in burr grinder with 13 settings, or
+                you can use your own pre-ground beans in the second chamber. In addition to
+                selecting from automatic single or double brewing options, you can also customize
+                the espresso strength, size, temperature to your tastes.
+              </p>
+              <div class="flex items-center justify-center my-4">
+                <img
+                  src="/images/coffee-machine-3.png"
+                  alt="Bialetti"
+                  class="max-h-[250px] object-cover"
+                />
+              </div>
+            </div>
+          `,
+  },
+  {
+    id: 3,
+    createdAt: Date.now(),
+    category: 'coffee-machine',
+    title: 'TOP 3 espresso machines 2021',
+    shortDesc:
+      "If you're looking to cut down on visits to your local coffee shop, the best home espresso machines can help you get your coffee right in your own kitchen.",
+    banner: '/images/home/home-blog-2.jpg',
+    author: 'Minh Ngoc',
+    content: `
+            <div class="font-poppins text-sm">
+              <p class="mb-4">
+                If you're looking to cut down on visits to your local coffee shop, the best home
+                espresso machines can help you get your latte or cappuccino right in your own
+                kitchen. The best home espresso machines offer much more than a basic brew, they
+                appeal to both newbies and budding baristas looking to take their caffeine devotion
+                to the next level.
+              </p>
+              <p class="uppercase mb-2 font-base font-bold">1. Bialetti espresso machine</p>
+              <p>
+                You’ll have an espresso, latte, or cappuccino in minutes with De’Longhi’s
+                super-automatic machine. It comes with a built-in burr grinder with 13 settings, or
+                you can use your own pre-ground beans in the second chamber. In addition to
+                selecting from automatic single or double brewing options, you can also customize
+                the espresso strength, size, temperature to your tastes.
+              </p>
+              <div class="flex items-center justify-center my-4">
+                <img
+                  src="/images/coffee-machine-2.png"
+                  alt="Bialetti"
+                  class="max-h-[250px] object-cover"
+                />
+              </div>
+              <p class="uppercase mb-2 font-base font-bold">2. delonghi espresso machine</p>
+              <p>
+                You’ll have an espresso, latte, or cappuccino in minutes with De’Longhi’s
+                super-automatic machine. It comes with a built-in burr grinder with 13 settings, or
+                you can use your own pre-ground beans in the second chamber. In addition to
+                selecting from automatic single or double brewing options, you can also customize
+                the espresso strength, size, temperature to your tastes.
+              </p>
+              <div class="flex items-center justify-center my-4">
+                <img
+                  src="/images/coffee-machine-4.png"
+                  alt="Bialetti"
+                  class="max-h-[250px] object-cover"
+                />
+              </div>
+              <p class="uppercase mb-2 font-base font-bold">3. NESPRESSO espresso machine</p>
+              <p>
+                You’ll have an espresso, latte, or cappuccino in minutes with De’Longhi’s
+                super-automatic machine. It comes with a built-in burr grinder with 13 settings, or
+                you can use your own pre-ground beans in the second chamber. In addition to
+                selecting from automatic single or double brewing options, you can also customize
+                the espresso strength, size, temperature to your tastes.
+              </p>
+              <div class="flex items-center justify-center my-4">
+                <img
+                  src="/images/coffee-machine-3.png"
+                  alt="Bialetti"
+                  class="max-h-[250px] object-cover"
+                />
+              </div>
+            </div>
+          `,
   },
 ];

@@ -164,19 +164,19 @@ const BurgerButton = ({ navbarOpen }) => {
                 <div className="mb-3">
                   <p className="text-base mb-2">Top brand</p>
                   <div className="font-poppins text-sm flex flex-col justify-center">
-                    <Link href="/">
+                    <Link href="/shop/coffee-machine">
                       <a className="mb-[10px] hover:text-primary">Bialetti</a>
                     </Link>
-                    <Link href="/">
+                    <Link href="/shop/coffee-machine">
                       <a className="mb-[10px] hover:text-primary">Breville</a>
                     </Link>
-                    <Link href="/">
+                    <Link href="/shop/coffee-machine">
                       <a className="mb-[10px] hover:text-primary">Delonghi</a>
                     </Link>
-                    <Link href="/">
+                    <Link href="/shop/coffee-machine">
                       <a className="mb-[10px] hover:text-primary">Nespresso</a>
                     </Link>
-                    <Link href="/">
+                    <Link href="/shop/coffee-machine">
                       <a className="hover:text-primary">See More</a>
                     </Link>
                   </div>
@@ -184,39 +184,39 @@ const BurgerButton = ({ navbarOpen }) => {
                 <div className="mb-3">
                   <p className="text-base mb-2">Coffee machine</p>
                   <div className="font-poppins text-sm flex flex-col justify-center">
-                    <Link href="/">
+                    <Link href="/shop/coffee-machine?type=coffee-grinder">
                       <a className="mb-[10px] hover:text-primary">Coffee Grinder</a>
                     </Link>
-                    <Link href="/">
+                    <Link href="/shop/coffee-machine?type=coffee-maker">
                       <a className="mb-[10px] hover:text-primary">Coffee Maker</a>
                     </Link>
-                    <Link href="/">
+                    <Link href="/shop/coffee-machine?type=coffee-roaster">
                       <a className="mb-[10px] hover:text-primary">Coffee Roaster</a>
                     </Link>
-                    <Link href="/">
+                    <Link href="/shop/coffee-machine?type=espresso-machine">
                       <a className="mb-[10px] hover:text-primary">Espresso Machine</a>
                     </Link>
-                    <Link href="/">
-                      <a className="hover:text-primary">Full Automatic</a>
+                    <Link href="/shop/coffee-machine?type=fully-automatic">
+                      <a className="hover:text-primary">Fully Automatic</a>
                     </Link>
                   </div>
                 </div>
                 <div className="mb-3">
                   <p className="text-base mb-2">Barista tools</p>
                   <div className="font-poppins text-sm flex flex-col justify-center">
-                    <Link href="/">
+                    <Link href="/shop/barista-tools?type=cups-and-mugs">
                       <a className="mb-[10px] hover:text-primary">Cups & Mugs</a>
                     </Link>
-                    <Link href="/">
+                    <Link href="/shop/barista-tools?type=scales">
                       <a className="mb-[10px] hover:text-primary">Scales & Spoons</a>
                     </Link>
-                    <Link href="/">
+                    <Link href="/shop/barista-tools?type=servers">
                       <a className="mb-[10px] hover:text-primary">Servers & Storages</a>
                     </Link>
-                    <Link href="/">
+                    <Link href="/shop/barista-tools?type=tampers-and-mats">
                       <a className="mb-[10px] hover:text-primary">Tampers & Mats</a>
                     </Link>
-                    <Link href="/">
+                    <Link href="/shop/barista-tools?type=thermormeters">
                       <a className="hover:text-primary">Thermormeter</a>
                     </Link>
                   </div>
@@ -224,19 +224,19 @@ const BurgerButton = ({ navbarOpen }) => {
                 <div className="mb-3">
                   <p className="text-base mb-2">Coffee beans</p>
                   <div className="font-poppins text-sm flex flex-col justify-center">
-                    <Link href="/">
+                    <Link href="/shop/coffee-beans?type=capsules">
                       <a className="mb-[10px] hover:text-primary">Capsules</a>
                     </Link>
-                    <Link href="/">
+                    <Link href="/shop/coffee-beans?type=ground">
                       <a className="mb-[10px] hover:text-primary">Ground</a>
                     </Link>
-                    <Link href="/">
+                    <Link href="/shop/coffee-beans?type=roasted">
                       <a className="mb-[10px] hover:text-primary">Roasted</a>
                     </Link>
-                    <Link href="/">
+                    <Link href="/shop/coffee-beans?type=whole-beans">
                       <a className="mb-[10px] hover:text-primary">Whole beans</a>
                     </Link>
-                    <Link href="/">
+                    <Link href="/shop/coffee-beans">
                       <a className="hover:text-primary">All beans</a>
                     </Link>
                   </div>
@@ -245,8 +245,12 @@ const BurgerButton = ({ navbarOpen }) => {
             </div>
           )}
         </Disclosure>
-        <p className="text-base uppercase p-2 hover:text-primary">blog</p>
-        <p className="text-base uppercase p-2 hover:text-primary">service</p>
+        <Link href="/blog">
+          <p className="text-base uppercase p-2 hover:text-primary">blog</p>
+        </Link>
+        <Link href="/service">
+          <p className="text-base uppercase p-2 hover:text-primary">service</p>
+        </Link>
         <p className="text-base uppercase p-2 hover:text-primary">contact</p>
         <Disclosure>
           {({ open }) => (
@@ -291,7 +295,7 @@ const BurgerButton = ({ navbarOpen }) => {
                         <Link href="/profile">
                           <a className="mb-[10px] hover:text-primary">Account</a>
                         </Link>
-                        <Link href="/profile/wishlist">
+                        <Link href="/profile">
                           <a className="mb-[10px] hover:text-primary">Wishlist</a>
                         </Link>
                         <button type="button" className="w-full" onClick={handleSignOut}>

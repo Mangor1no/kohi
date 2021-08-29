@@ -1,3 +1,4 @@
+import Comment from 'components/Comment';
 import { categories } from 'data/constants';
 import React, { useState, Fragment } from 'react';
 
@@ -101,6 +102,20 @@ const ProductMetadata = ({ type, metadata }) => {
 
   if (!type || !metadata) return null;
 
+  const renderTab = () => {
+    if (tab === 'desc') {
+      return renderMetadata();
+    }
+    if (tab === 'review') {
+      return (
+        <div className="md:w-1/2">
+          <Comment />
+        </div>
+      );
+    }
+    return null;
+  };
+
   return (
     <>
       <div className="flex items-center justify-between mb-9 sm:w-1/2">
@@ -151,7 +166,7 @@ const ProductMetadata = ({ type, metadata }) => {
           Q&A
         </label>
       </div>
-      {renderMetadata()}
+      {renderTab()}
     </>
   );
 };

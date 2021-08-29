@@ -96,10 +96,10 @@ const cartReducer = (state = initialState, { type, payload }) => {
   }
 };
 
-const PROFILE_PERSIST_KEY = 'KOHI@cart';
+const PERSIST_KEY = 'KOHI@cart';
 
 const persistConfig = {
-  key: PROFILE_PERSIST_KEY,
+  key: PERSIST_KEY,
   storage,
   whitelist: ['data'],
 };

@@ -56,7 +56,7 @@ export default function Home() {
             <Link href="/shop/coffee-machine">
               <button
                 type="button"
-                className="bg-[#F2F2F2] text-textPrimary px-14 py-4 rounded-md uppercase"
+                className="bg-[#F2F2F2] hover:bg-[#e9e9e9] text-textPrimary px-14 py-4 rounded-md uppercase transition duration-150"
               >
                 Buy now
               </button>

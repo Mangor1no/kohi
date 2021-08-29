@@ -61,6 +61,30 @@ const userReducer = (state = initialState, { type, payload }) => {
         },
       };
     }
+    case TYPES.CHANGE_USER_INFO_SUCCESS: {
+      const userId = payload?.id;
+      let updatedUser = state.data.filter((user) => user.id === userId)?.[0];
+      updatedUser = { ...updatedUser, ...payload };
+      const newData = [...state.data.filter((user) => user.id !== userId), updatedUser];
+      return {
+        ...state,
+        data: newData,
+      };
+    }
+    case TYPES.CHANGE_USER_PASSWORD_SUCCESS: {
+      const userId = payload?.id;
+      let updatedUser = state.data.filter((user) => user.id === userId)?.[0];
+      updatedUser = { ...updatedUser, password: payload?.password };
+      const newData = [...state.data.filter((user) => user.id !== userId), updatedUser];
+      return {
+        ...state,
+        current: {
+          ...state.current,
+          password: payload?.password,
+        },
+        data: newData,
+      };
+    }
     default:
       return state;
   }

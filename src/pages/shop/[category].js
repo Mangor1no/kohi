@@ -63,6 +63,7 @@ const Shop = () => {
         setCurrentCategory(query?.category);
       }
       setCurrentSubCategory(current?.name);
+      setCurrentSubCategorySlug(current?.slug);
       setPageCount(Math.ceil(products.length / 12));
       setIsLoading(false);
     }

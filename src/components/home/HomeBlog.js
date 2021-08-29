@@ -14,7 +14,7 @@ const HomeBlog = () => {
         <div className="w-[90px] h-[2px] bg-primary ml-1" />
       </div>
       <div className="grid md:grid-cols-3 w-full h-1/2 gap-5">
-        {blogs.map((blog) => (
+        {blogs.slice(0, 3).map((blog) => (
           <Fragment key={blog.id}>
             <BlogCard
               banner={blog.banner}
@@ -22,6 +22,7 @@ const HomeBlog = () => {
               shortDesc={blog.shortDesc}
               title={blog.title}
               category={blog.category}
+              blogId={blog?.id}
             />
           </Fragment>
         ))}

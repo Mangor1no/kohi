@@ -1,6 +1,6 @@
 import * as TYPES from 'data/types';
 import { v4 as uuidv4 } from 'uuid';
-import { profileDataSelector } from 'data/selectors/userSelector';
+import { currentProfileSelector, profileDataSelector } from 'data/selectors/userSelector';
 import { mergeGuestCart } from './cart';
 
 const checkExistUser = (users, newUser) => {
@@ -94,6 +94,40 @@ export const signOut = () => async (dispatch) => {
   } catch (err) {
     return dispatch({
       type: TYPES.SIGN_OUT_FAILURE,
+      payload: err,
+    });
+  }
+};
+
+export const changeUserInfo = (info) => async (dispatch, getState) => {
+  try {
+    dispatch({ type: TYPES.CHANGE_USER_INFO_REQUEST });
+    const currentUserId = currentProfileSelector(getState())?.id;
+    dispatch({
+      type: TYPES.CHANGE_USER_INFO_SUCCESS,
+      payload: { id: currentUserId, ...info },
+    });
+    return true;
+  } catch (err) {
+    return dispatch({
+      type: TYPES.CHANGE_USER_INFO_FAILURE,
+      payload: err,
+    });
+  }
+};
+
+export const changeUserPassword = (password) => async (dispatch, getState) => {
+  try {
+    dispatch({ type: TYPES.CHANGE_USER_PASSWORD_REQUEST });
+    const currentUserId = currentProfileSelector(getState())?.id;
+    dispatch({
+      type: TYPES.CHANGE_USER_PASSWORD_SUCCESS,
+      payload: { id: currentUserId, password },
+    });
+    return true;
+  } catch (err) {
+    return dispatch({
+      type: TYPES.CHANGE_USER_PASSWORD_FAILURE,
       payload: err,
     });
   }

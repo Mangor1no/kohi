@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import {
   IconFacebook,
@@ -37,7 +38,9 @@ const Footer = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-5 gap-y-6 md;gap-y-0 md:gap-x-6 w-full">
               <div className="md:col-span-2">
-                <p className="uppercase text-xl font-semibold text-white">Kohi</p>
+                <Link href="/">
+                  <img src="/images/logo.png" className="cursor-pointer" alt="logo" />
+                </Link>
                 <div className="font-poppins text-sm text-[#B1B1B1]">
                   <p className="my-[14px] text-[#F2F2F2]">
                     We provide the best coffee machines & beans
@@ -66,17 +69,37 @@ const Footer = () => {
                 </div>
                 <div className="font-poppins text-sm text-[#B1B1B1]">
                   <p className="text-white text-base mb-6">Shop</p>
-                  <p className="text-sm text-[#B1B1B1] mb-[14px]">Coffee Machine</p>
-                  <p className="text-sm text-[#B1B1B1] mb-[14px]">Barisra Tools</p>
-                  <p className="text-sm text-[#B1B1B1] mb-[14px]">Accessories</p>
-                  <p className="text-sm text-[#B1B1B1] mb-[14px]">Coffee Beans</p>
+                  <Link href="/shop/coffee-machine">
+                    <p className="text-sm text-[#B1B1B1] mb-[14px] cursor-pointer">
+                      Coffee Machine
+                    </p>
+                  </Link>
+                  <Link href="/shop/barista-tools">
+                    <p className="text-sm text-[#B1B1B1] mb-[14px] cursor-pointer">Barista Tools</p>
+                  </Link>
+                  <p className="text-sm text-[#B1B1B1] mb-[14px] cursor-not-allowed">Accessories</p>
+                  <Link href="/shop/coffee-beans">
+                    <p className="text-sm text-[#B1B1B1] mb-[14px] cursor-pointer">Coffee Beans</p>
+                  </Link>
                 </div>
                 <div className="font-poppins text-sm text-[#B1B1B1]">
                   <p className="text-white text-base mb-6">Services</p>
-                  <p className="text-sm text-[#B1B1B1] mb-[14px]">Online Order</p>
-                  <p className="text-sm text-[#B1B1B1] mb-[14px]">Fast Delivery</p>
-                  <p className="text-sm text-[#B1B1B1] mb-[14px]">Maintenance & Repair</p>
-                  <p className="text-sm text-[#B1B1B1] mb-[14px]">Return & Refund</p>
+                  <Link href="/shop">
+                    <p className="text-sm text-[#B1B1B1] mb-[14px] cursor-pointer">Online Order</p>
+                  </Link>
+                  <Link href="/service?type=delivery-service">
+                    <p className="text-sm text-[#B1B1B1] mb-[14px] cursor-pointer">Fast Delivery</p>
+                  </Link>
+                  <Link href="/service?type=maintenance-and-repair-service">
+                    <p className="text-sm text-[#B1B1B1] mb-[14px] cursor-pointer">
+                      Maintenance & Repair
+                    </p>
+                  </Link>
+                  <Link href="/service?type=return-and-refund-services">
+                    <p className="text-sm text-[#B1B1B1] mb-[14px] cursor-pointer">
+                      Return & Refund
+                    </p>
+                  </Link>
                 </div>
               </div>
             </div>

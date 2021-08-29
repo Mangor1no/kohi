@@ -20,7 +20,7 @@ let store;
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['cart', 'user'],
+  whitelist: ['cart', 'user', 'wishlist'],
 };
 
 const persistedReducer = persistReducer(persistConfig, appReducer);

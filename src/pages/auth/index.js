@@ -6,8 +6,7 @@ import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { ToastContainer, toast, Slide } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { delay, sleeper } from 'utils/helpers';
+import { delay, validateEmail } from 'utils/helpers';
 
 const AuthPage = () => {
   const tabs = ['signin', 'signup'];
@@ -29,17 +28,11 @@ const AuthPage = () => {
     return setCurrentTab(tabs[0]);
   };
 
-  function validateEmail() {
-    const re =
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
-  }
-
   const handleSignIn = async () => {
-    if (username.length === 0) {
+    if (username.trim().length === 0) {
       return setErrors({ username: true });
     }
-    if (password.length < 6) {
+    if (password.trim().length < 6) {
       return setErrors({ password: true });
     }
     setErrors(null);
@@ -74,13 +67,13 @@ const AuthPage = () => {
   };
 
   const handleSignUp = async () => {
-    if (username.length === 0) {
+    if (username.trim().length === 0) {
       return setErrors({ username: true });
     }
-    if (email.length === 0 || !validateEmail()) {
+    if (email.trim().length === 0 || !validateEmail(email)) {
       return setErrors({ email: true });
     }
-    if (password.length < 6) {
+    if (password.trim().length < 6) {
       return setErrors({ password: true });
     }
     if (rePassword !== password) {
